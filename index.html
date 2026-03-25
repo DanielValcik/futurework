@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of Product Teams | Trezor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')}catch(e){}})()
+    </script>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <p class="preloader-label">Trezor · Product Vision 2026</p>
+            <p class="preloader-quote">"AI isn't just changing our tools —<br>it's changing how teams are organized."</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-brand">Future of Product Teams</a>
+        <div class="nav-right">
+            <span class="nav-counter"><span class="nav-counter-value">8</span><span class="nav-counter-label"> sections to explore</span></span>
+            <a href="#current-state" class="nav-link" data-section="current-state">state</a>
+            <a href="#research" class="nav-link" data-section="research">research</a>
+            <a href="#vision" class="nav-link" data-section="vision">vision</a>
+            <a href="#model" class="nav-link" data-section="model">model</a>
+            <a href="#roadmap" class="nav-link" data-section="roadmap">roadmap</a>
+            <a href="#conclusion" class="nav-link" data-section="conclusion">takeaways</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <div class="theme-toggle-circle"></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Scroll Sidebar -->
+    <div class="scroll-sidebar" id="scroll-sidebar">
+        <div class="sidebar-track" id="sidebar-track"></div>
+        <div class="sidebar-cursor" id="sidebar-cursor">
+            <svg width="8" height="10" viewBox="0 0 8 10" fill="none">
+                <path d="M8 5L0 0V10L8 5Z" fill="var(--accent)"/>
+            </svg>
+        </div>
+        <button class="sidebar-label" data-target="current-state"><span>Current State</span></button>
+        <button class="sidebar-label" data-target="research"><span>Research</span></button>
+        <button class="sidebar-label" data-target="vision"><span>Vision</span></button>
+        <button class="sidebar-label" data-target="orchestrator"><span>Orchestrator</span></button>
+        <button class="sidebar-label" data-target="model"><span>Model</span></button>
+        <button class="sidebar-label" data-target="roadmap"><span>Roadmap</span></button>
+        <button class="sidebar-label" data-target="risks"><span>Risks</span></button>
+        <button class="sidebar-label" data-target="conclusion"><span>Takeaways</span></button>
+    </div>
+
+    <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+    <section id="hero">
+        <canvas id="hero-canvas" class="hero-canvas"></canvas>
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">
+                <span class="hero-word">The</span>
+                <span class="hero-word">future</span>
+                <span class="hero-word">of</span>
+                <span class="hero-word">product</span>
+                <span class="hero-word">teams</span>
+                <span class="hero-word">belongs</span>
+                <span class="hero-word">to</span>
+                <span class="hero-word accent-word">orchestrators.</span>
+            </h1>
+            <p class="hero-sub mono-sm" id="hero-sub">Daniel Valčík</p>
+            <p class="hero-role" id="hero-role">Head of Design / Trezor / March 2026</p>
+        </div>
+        <div class="scroll-indicator" id="scroll-indicator">
+            <span class="mono-xs">scroll down</span>
+            <div class="scroll-mouse">
+                <div class="scroll-mouse-border">
+                    <div class="scroll-mouse-dot"></div>
+                </div>
+                <div class="scroll-chevrons">
+                    <div class="scroll-chevron"></div>
+                    <div class="scroll-chevron"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ STATS ═══════════════════════════════════════ -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card blur-fade">
+                    <div class="stat-value">
+                        <span class="stat-number" data-target="40">0</span><span class="stat-unit">%</span>
+                    </div>
+                    <p class="stat-desc">of enterprise apps will integrate AI agents by end of 2026</p>
+                    <span class="stat-source mono-xs">Gartner</span>
+                </div>
+                <div class="stat-card blur-fade" data-delay="0.1">
+                    <div class="stat-value">
+                        <span class="stat-number" data-target="94">0</span><span class="stat-unit">%</span>
+                    </div>
+                    <p class="stat-desc">of product professionals already use AI regularly</p>
+                    <span class="stat-source mono-xs">Reforge</span>
+                </div>
+                <div class="stat-card blur-fade" data-delay="0.2">
+                    <div class="stat-value">
+                        <span class="stat-number" data-target="80">0</span><span class="stat-unit">%</span>
+                    </div>
+                    <p class="stat-desc">of large engineering teams will reorganize by 2030</p>
+                    <span class="stat-source mono-xs">Gartner</span>
+                </div>
+                <div class="stat-card blur-fade" data-delay="0.3">
+                    <div class="stat-value">
+                        <span class="stat-number" data-target="2">0</span><span class="stat-unit">hrs/day</span>
+                    </div>
+                    <p class="stat-desc">saved through deep AI integration into workflows</p>
+                    <span class="stat-source mono-xs">Reforge</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ CURRENT STATE ═══════════════════════════════════ -->
+    <section id="current-state" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[01]</span>
+                <h2 class="section-title blur-fade">Current State</h2>
+                <p class="section-subtitle blur-fade">Where the industry stands — and where Trezor fits in</p>
+            </div>
+
+            <div class="content-grid two-col">
+                <div class="content-block blur-fade">
+                    <h3>The Traditional Model</h3>
+                    <p>Most product organizations today operate on the model described by Marty Cagan at SVPG. An <strong>empowered product team</strong> consists of a product manager, a product designer, and engineers led by a tech lead.</p>
+                    <p>The team is focused on <strong>outcomes, not output</strong>, and has the authority to find the best solutions to the problems it's been entrusted with.</p>
+                    <div class="team-diagram blur-fade" data-delay="0.2">
+                        <div class="team-node">PM</div>
+                        <div class="team-connector"></div>
+                        <div class="team-node">Designer</div>
+                        <div class="team-connector"></div>
+                        <div class="team-node">Tech Lead</div>
+                        <div class="team-connector"></div>
+                        <div class="team-node">3–4 Eng</div>
+                    </div>
+                    <p class="text-muted">This model worked brilliantly in the cloud era.</p>
+                </div>
+
+                <div class="content-block blur-fade" data-delay="0.15">
+                    <h3>Trezor Today</h3>
+                    <p>Trezor currently operates in <strong>domain-based teams</strong>: Growth, Wallet, Trade, Earn, Foundation, and others. Each team has a PM, designer, and tech lead with engineers.</p>
+                    <div class="domain-tags blur-fade" data-delay="0.3">
+                        <span class="domain-tag">Growth</span>
+                        <span class="domain-tag">Wallet</span>
+                        <span class="domain-tag">Trade</span>
+                        <span class="domain-tag">Earn</span>
+                        <span class="domain-tag">Foundation</span>
+                    </div>
+                    <p>It's a classic empowered model. The CEO wants to go the AI route, which opens a fundamental question:</p>
+                    <div class="callout blur-fade" data-delay="0.4">
+                        <p>How must this model adapt?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tipping-point blur-fade">
+                <h3 class="tipping-title">The Tipping Point <span class="mono-xs">2025–2026</span></h3>
+                <p>AI isn't just a new tool — like cloud computing before it, AI represents a <strong>paradigm shift</strong> that will completely redefine how we build products. Cloud didn't just add servers — it catalyzed cross-functional pods, continuous deployment, product-led growth. AI will do the same for team structure and decision-making.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ RESEARCH ═══════════════════════════════════ -->
+    <section id="research" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[02]</span>
+                <h2 class="section-title blur-fade">What the Leaders Say</h2>
+                <p class="section-subtitle blur-fade">Research from the world's leading product thinkers and organizations</p>
+            </div>
+
+            <div class="research-grid">
+                <!-- SVPG -->
+                <div class="research-card blur-fade">
+                    <div class="research-card-header">
+                        <span class="research-source mono-xs">SVPG</span>
+                        <span class="research-author">Marty Cagan</span>
+                    </div>
+                    <h3>Smaller Teams, Bigger Scope</h3>
+                    <p>Thanks to AI-powered tools, the cognitive load on teams decreases, which means the <strong>scope of responsibility for a single team can increase dramatically</strong>. Fewer teams with smaller sizes, but greater autonomy and impact.</p>
+                    <blockquote>
+                        "The majority of people that believe all these roles are about to be automated are just telling me that they are not yet aware of what they don't know."
+                    </blockquote>
+                    <div class="research-tags">
+                        <span>Smaller teams</span>
+                        <span>Preserve expertise</span>
+                        <span>No solopreneurs</span>
+                    </div>
+                </div>
+
+                <!-- Reforge -->
+                <div class="research-card blur-fade" data-delay="0.1">
+                    <div class="research-card-header">
+                        <span class="research-source mono-xs">Reforge</span>
+                        <span class="research-author">Brian Balfour</span>
+                    </div>
+                    <h3>Startup Magic at Scale</h3>
+                    <p>In early startups, something magical happens: teams ship more with fewer people. As the company grows, that magic disappears. <strong>AI can maintain the magic of early-stage startups even at scale.</strong></p>
+                    <blockquote>
+                        "In the age of AI, taste will become more important than skills as much of skill-based work is offloaded to compute."
+                        <cite>— Scott Belsky, former CPO of Adobe</cite>
+                    </blockquote>
+                    <div class="research-tags">
+                        <span>Product intuition</span>
+                        <span>Taste &gt; Skills</span>
+                        <span>Historical analogy</span>
+                    </div>
+                </div>
+
+                <!-- PwC -->
+                <div class="research-card blur-fade" data-delay="0.15">
+                    <div class="research-card-header">
+                        <span class="research-source mono-xs">PwC</span>
+                        <span class="research-author">2026 Predictions</span>
+                    </div>
+                    <h3>The AI Studio Model</h3>
+                    <p>PwC introduces the <strong>"AI Studio"</strong> — a centralized hub with reusable tech components, evaluation frameworks, a sandbox for testing, and deployment protocols.</p>
+                    <blockquote>
+                        "The grassroots approach may generate impressive adoption numbers but seldom produces meaningful business outcomes."
+                    </blockquote>
+                    <div class="research-tags">
+                        <span>Centralized hub</span>
+                        <span>Go narrow &amp; deep</span>
+                        <span>Orchestration layer</span>
+                    </div>
+                </div>
+
+                <!-- Vercel -->
+                <div class="research-card blur-fade" data-delay="0.2">
+                    <div class="research-card-header">
+                        <span class="research-source mono-xs">Vercel</span>
+                        <span class="research-author">Guillermo Rauch</span>
+                    </div>
+                    <h3>Everyone Builds Now</h3>
+                    <p>Designers, marketers, and PMs can contribute directly to code through AI. Three essential skills: <strong>clear product intent</strong>, effective AI coaching, and quick problem-solving.</p>
+                    <blockquote>
+                        "Deep understanding of software systems remains valuable — output quality depends on the taste of the person directing the AI."
+                    </blockquote>
+                    <div class="research-tags">
+                        <span>Exposure hours</span>
+                        <span>AI coaching</span>
+                        <span>Democratized building</span>
+                    </div>
+                </div>
+
+                <!-- Composite Squads -->
+                <div class="research-card blur-fade" data-delay="0.25">
+                    <div class="research-card-header">
+                        <span class="research-source mono-xs">CIO.com</span>
+                        <span class="research-author">Composite Squads</span>
+                    </div>
+                    <h3>Spotify Model Evolved</h3>
+                    <p>Hybrid units where human members collaborate with AI copilots and embedded agents. <strong>Liquid Workflows</strong> dynamically redistribute work. <strong>Cognitive Mesh</strong> shares intelligence across squads.</p>
+                    <div class="result-highlight">
+                        <div class="result-stat"><span class="result-number">35%</span><span class="result-label">faster time-to-market</span></div>
+                        <div class="result-stat"><span class="result-number">50%</span><span class="result-label">fewer post-release bugs</span></div>
+                    </div>
+                    <div class="research-tags">
+                        <span>Human-AI squads</span>
+                        <span>Liquid workflows</span>
+                        <span>Agentic governance</span>
+                    </div>
+                </div>
+
+                <!-- Klarna -->
+                <div class="research-card research-card--warning blur-fade" data-delay="0.3">
+                    <div class="research-card-header">
+                        <span class="research-source mono-xs warning-text">Klarna</span>
+                        <span class="research-author">Cautionary Tale</span>
+                    </div>
+                    <h3>What Happens When You Replace Instead of Augment</h3>
+                    <p>CEO aggressively promoted AI as a replacement: workforce dropped from <strong>5,500 to 3,400</strong>. An AI chatbot reportedly replaced 700 customer service agents.</p>
+                    <p class="warning-text">Six months later: customer satisfaction dropped dramatically. Siemiatkowski admitted: <em>"We went too far."</em></p>
+                    <div class="callout callout--warning">
+                        <p><strong>Lesson for Trezor:</strong> Change how people work with AI — augmentation, not substitution.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Insights Row -->
+            <div class="insights-row blur-fade">
+                <div class="insight-item">
+                    <span class="insight-source mono-xs">Microsoft Design</span>
+                    <p>An <strong>AI-first design system must support adaptability, context, and memory.</strong> We're moving from fixed layouts to dynamic spaces.</p>
+                </div>
+                <div class="insight-item">
+                    <span class="insight-source mono-xs">IBM Think 2026</span>
+                    <p>AI is moving from individual usage to <strong>team and workflow orchestration</strong>. From passive assistant to <strong>active collaborator.</strong></p>
+                </div>
+                <div class="insight-item">
+                    <span class="insight-source mono-xs">Insight Partners</span>
+                    <p>The experimental phase is over. Discovery and delivery have merged into a <strong>single continuous loop.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ VISION ═══════════════════════════════════════ -->
+    <section id="vision" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[03]</span>
+                <h2 class="section-title blur-fade">The Vision</h2>
+                <p class="section-subtitle blur-fade">Hub-based architecture for AI-native teams</p>
+            </div>
+
+            <div class="vision-intro blur-fade">
+                <p class="lead-text">A hybrid model that preserves empowered teams, adds shared AI hubs, and enables role convergence toward the <strong>Orchestrator</strong>.</p>
+            </div>
+
+            <!-- ═══ Scroll-Driven Hub Explainer ═══ -->
+            <div class="hub-explainer" id="hub-explainer">
+                <div class="hub-explainer-visual">
+                    <div class="explainer-diagram" id="explainer-diagram" data-step="0">
+                        <!-- Traditional Team (step 0) -->
+                        <div class="ex-layer ex-traditional">
+                            <span class="ex-layer-label mono-xs">Current Model</span>
+                            <div class="ex-team-row">
+                                <div class="ex-node ex-node--gray">PM</div>
+                                <div class="ex-node ex-node--gray">Designer</div>
+                                <div class="ex-node ex-node--gray">Tech Lead</div>
+                                <div class="ex-node ex-node--gray">3–4 Eng</div>
+                            </div>
+                            <p class="ex-note">Repeated in every team. Siloed knowledge.</p>
+                        </div>
+
+                        <!-- Core Hubs Layer -->
+                        <div class="ex-layer ex-hubs">
+                            <span class="ex-layer-label mono-xs">Core Hubs</span>
+                            <div class="ex-hubs-row">
+                                <div class="ex-hub ex-hub--design">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                    <span>Design</span>
+                                    <div class="ex-hub-items">
+                                        <small>Tokens</small><small>Components</small><small>Templates</small>
+                                    </div>
+                                </div>
+                                <div class="ex-hub ex-hub--content">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                    <span>Content</span>
+                                    <div class="ex-hub-items">
+                                        <small>UI Copy</small><small>Tone</small><small>Standards</small>
+                                    </div>
+                                </div>
+                                <div class="ex-hub ex-hub--insights">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    <span>Insights</span>
+                                    <div class="ex-hub-items">
+                                        <small>Research</small><small>Analytics</small><small>Validation</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Specialized Hubs Layer -->
+                        <div class="ex-layer ex-specialized-hubs">
+                            <span class="ex-layer-label mono-xs">Specialized Hubs</span>
+                            <div class="ex-hubs-row">
+                                <div class="ex-hub ex-hub--security">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    <span>Security</span>
+                                    <div class="ex-hub-items">
+                                        <small>Compliance</small><small>Threat Models</small><small>Audit</small>
+                                    </div>
+                                </div>
+                                <div class="ex-hub ex-hub--experiment">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h6M12 3v6l5.5 9.5a1 1 0 01-.9 1.5H7.4a1 1 0 01-.9-1.5L12 9"/></svg>
+                                    <span>Experimentation</span>
+                                    <div class="ex-hub-items">
+                                        <small>A/B Tests</small><small>Feature Flags</small><small>Metrics</small>
+                                    </div>
+                                </div>
+                                <div class="ex-hub ex-hub--local">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                                    <span>Localisation</span>
+                                    <div class="ex-hub-items">
+                                        <small>Culture</small><small>Education</small><small>Markets</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Connection Lines -->
+                        <div class="ex-connections">
+                            <div class="ex-conn-line ex-conn-line--1"></div>
+                            <div class="ex-conn-line ex-conn-line--2"></div>
+                            <div class="ex-conn-line ex-conn-line--3"></div>
+                        </div>
+
+                        <!-- Orchestrator -->
+                        <div class="ex-layer ex-orchestrator-layer">
+                            <span class="ex-layer-label mono-xs">Orchestrator</span>
+                            <div class="ex-orch-node">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+                                <span>Queries hubs before building. Not all hubs on every project.</span>
+                            </div>
+                        </div>
+
+                        <!-- Connections to teams -->
+                        <div class="ex-connections ex-connections--teams">
+                            <div class="ex-conn-line ex-conn-line--t1"></div>
+                            <div class="ex-conn-line ex-conn-line--t2"></div>
+                            <div class="ex-conn-line ex-conn-line--t3"></div>
+                        </div>
+
+                        <!-- Domain Teams -->
+                        <div class="ex-layer ex-domains">
+                            <span class="ex-layer-label mono-xs">Domain Teams</span>
+                            <div class="ex-team-row">
+                                <div class="ex-node ex-node--team">Growth</div>
+                                <div class="ex-node ex-node--team">Wallet</div>
+                                <div class="ex-node ex-node--team">Trade</div>
+                                <div class="ex-node ex-node--team">Earn</div>
+                                <div class="ex-node ex-node--team">Foundation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hub-explainer-steps">
+                    <div class="explainer-step" data-step="0">
+                        <span class="mono-xs">The Problem</span>
+                        <h3>Siloed knowledge, duplicated effort</h3>
+                        <p>Today, each domain team has its own PM, designer, and tech lead with engineers. <strong>Knowledge and patterns stay siloed</strong> — each team reinvents the wheel.</p>
+                        <p>Design systems exist, but they're passive libraries. Research is fragmented across teams. Copy is written ad hoc, per feature. There's no shared intelligence — when someone leaves, their knowledge walks out the door.</p>
+                    </div>
+                    <div class="explainer-step" data-step="1">
+                        <span class="mono-xs">Core Hubs</span>
+                        <h3>Three foundational hubs</h3>
+                        <ul class="ex-step-list">
+                            <li><strong class="design-color">Design Hub</strong> — Without it, we can't guarantee consistent quality across teams. We can't allow everyone to use whatever they want, whenever they want. Enforces shared standards while enabling faster generation within guardrails.</li>
+                            <li><strong class="content-color">Content Hub</strong> — One communication style, everywhere. No more forgotten touchpoints — when something changes, FAQ, tooltips, and release notes update too. Standardization, not ad hoc copy.</li>
+                            <li><strong class="insights-color">Insights Hub</strong> — <em>Is this even worth doing?</em> Just because AI makes something easy doesn't mean we should do it. Validates ideas against real data and user needs. Every learning feeds back in.</li>
+                        </ul>
+                    </div>
+                    <div class="explainer-step" data-step="2">
+                        <span class="mono-xs">Specialized Hubs</span>
+                        <h3>Three hubs for Trezor's reality</h3>
+                        <ul class="ex-step-list">
+                            <li><strong class="security-color">Security &amp; Compliance Hub</strong> — Trezor builds a security product. One UX error can cost users money. This hub knows all security standards, regulations (MiCA, crypto legislation), threat models. Every feature is auto-audited before design even begins. <em>Mandatory checkpoint for everything.</em></li>
+                            <li><strong class="experiment-color">Experimentation Hub</strong> — Orchestrates A/B tests, feature flags, and experiments across all teams. Knows what's running, where overlaps are, when statistical significance is reached. Alerts when there's a clear winner — or when an experiment is hurting metrics. Results feed into Insights Hub.</li>
+                            <li><strong class="local-color">Localisation &amp; Education Hub</strong> — Trezor has global users and crypto is inherently education-heavy. Not just translation — cultural adaptation and contextual intelligence. A Japanese user needs different onboarding than a German one. Knows that in Brazil, self-custody interest is rising due to currency instability — adapts messaging accordingly.</li>
+                        </ul>
+                    </div>
+                    <div class="explainer-step" data-step="3">
+                        <span class="mono-xs">The Orchestrator</span>
+                        <h3>Queries first, builds second</h3>
+                        <p>The Orchestrator <strong>doesn't build from scratch — they query the hubs</strong>. Not all six hubs on every project. Security is a mandatory checkpoint for everything. Experimentation kicks in during testing. Localisation when scaling to new markets.</p>
+                        <p>Each Orchestrator leads a smaller team (+ Tech Lead + 1–2 engineers) but has <strong>far greater scope and impact</strong> because the hubs eliminate the grunt work.</p>
+                    </div>
+                    <div class="explainer-step" data-step="4">
+                        <span class="mono-xs">Ownership</span>
+                        <h3>Each hub has a dedicated guardian</h3>
+                        <p>Hubs aren't self-running — each is <strong>owned and maintained by a domain expert</strong>:</p>
+                        <div class="ex-owners">
+                            <div class="ex-owner"><span class="design-color">Design</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Design System Designer</strong></div>
+                            <div class="ex-owner"><span class="content-color">Content</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Content Designer</strong></div>
+                            <div class="ex-owner"><span class="insights-color">Insights</span> <span class="ex-owner-arrow">&rarr;</span> <strong>User Researcher</strong></div>
+                            <div class="ex-owner"><span class="security-color">Security</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Security Lead</strong></div>
+                            <div class="ex-owner"><span class="experiment-color">Experimentation</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Growth / Data Lead</strong></div>
+                            <div class="ex-owner"><span class="local-color">Localisation</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Localisation Lead</strong></div>
+                        </div>
+                        <p>Domain teams don't disappear — they become smaller, faster, and more autonomous.</p>
+                        <div class="callout" style="margin-top: 1rem">
+                            <p>Focus on what matters, not on what's easy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hub Details: Why + What + Who -->
+            <h3 class="hub-group-title blur-fade">Core Hubs <span class="mono-xs">Foundational</span></h3>
+            <div class="hub-details-grid">
+                <div class="hub-detail blur-fade" data-delay="0.1">
+                    <div class="hub-detail-header hub-detail--design">
+                        <h3>Design Hub</h3>
+                    </div>
+                    <div class="hub-why">
+                        <span class="mono-xs">Why it exists</span>
+                        <p>Without centralized design governance, consistent look &amp; feel is impossible as teams scale. We cannot allow each team to use whatever they want — the hub guarantees quality and coherence across every product surface.</p>
+                    </div>
+                    <ul class="hub-layers">
+                        <li><strong>Base Rules</strong> — Design tokens (colors, type, spacing) readable by AI agents</li>
+                        <li><strong>Smart Components</strong> — Know when, where, and with what to be used. AI-enforced consistency</li>
+                        <li><strong>Generative Templates</strong> — AI generates layouts within defined parameters, not from scratch</li>
+                        <li><strong>Non-Deterministic Design</strong> — Guardrails for adaptive, AI-generated UI — how far it can flex, where the hard lines are</li>
+                    </ul>
+                    <div class="hub-owner">
+                        <span class="mono-xs">Owned by</span>
+                        <strong>Design System Designer</strong>
+                    </div>
+                </div>
+
+                <div class="hub-detail blur-fade" data-delay="0.2">
+                    <div class="hub-detail-header hub-detail--content">
+                        <h3>Content Hub</h3>
+                    </div>
+                    <div class="hub-why">
+                        <span class="mono-xs">Why it exists</span>
+                        <p>One communication style, everywhere. When a flow changes, the hub flags every place that needs updating — FAQ, tooltips, release notes, help center. Nothing gets forgotten. Standardization across all channels and languages.</p>
+                    </div>
+                    <ul class="hub-layers">
+                        <li><strong>UI Communication</strong> — Onboarding copy, errors, success states, empty states, tooltips</li>
+                        <li><strong>Propagation Awareness</strong> — Knows all touchpoints that must update when something changes</li>
+                        <li><strong>Tone &amp; Standards</strong> — Unified voice, terminology, and writing rules across every channel</li>
+                    </ul>
+                    <div class="hub-owner">
+                        <span class="mono-xs">Owned by</span>
+                        <strong>Content Designer</strong>
+                    </div>
+                </div>
+
+                <div class="hub-detail blur-fade" data-delay="0.3">
+                    <div class="hub-detail-header hub-detail--insights">
+                        <h3>Insights Hub</h3>
+                    </div>
+                    <div class="hub-why">
+                        <span class="mono-xs">Why it exists</span>
+                        <p>Just because AI makes something easy doesn't mean we should do it. The Orchestrator must validate whether an effort is worth pursuing <em>before</em> they start. Focus on what matters and know why. Every learning feeds back into the hub for the next team.</p>
+                    </div>
+                    <ul class="hub-layers">
+                        <li><strong>Pre-Validation</strong> — Is this idea grounded in real data and user needs? Should we even pursue it?</li>
+                        <li><strong>Data Synthesis</strong> — Connects qualitative (interviews, feedback) with quantitative (analytics, metrics)</li>
+                        <li><strong>Organizational Memory</strong> — No knowledge walks out the door when people leave</li>
+                        <li><strong>Feedback Loop</strong> — Test results and new learnings flow back in, available to every team</li>
+                    </ul>
+                    <div class="hub-owner">
+                        <span class="mono-xs">Owned by</span>
+                        <strong>User Researcher</strong>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Specialized Hub Details -->
+                <h3 class="hub-group-title blur-fade">Specialized Hubs</h3>
+                <div class="hub-details-grid">
+                    <div class="hub-detail blur-fade" data-delay="0.1">
+                        <div class="hub-detail-header hub-detail--security">
+                            <h3>Security &amp; Compliance Hub</h3>
+                        </div>
+                        <div class="hub-why">
+                            <span class="mono-xs">Why it exists</span>
+                            <p>Trezor builds a security product — security isn't nice-to-have, it's core. One UX error can cost users money. This hub knows all security standards, regulations (MiCA, crypto legislation), threat models and best practices.</p>
+                        </div>
+                        <ul class="hub-layers">
+                            <li><strong>Pre-Design Audit</strong> — "What are the security implications of biometric onboarding?" — answered before design starts</li>
+                            <li><strong>Auto-Compliance Check</strong> — Every new feature validated against security checklist and regulatory requirements</li>
+                            <li><strong>Threat Intelligence</strong> — Evolving crypto-specific threat models, updated continuously</li>
+                        </ul>
+                        <div class="hub-owner">
+                            <span class="mono-xs">Owned by</span>
+                            <strong>Security Lead</strong>
+                        </div>
+                    </div>
+
+                    <div class="hub-detail blur-fade" data-delay="0.2">
+                        <div class="hub-detail-header hub-detail--experiment">
+                            <h3>Experimentation Hub</h3>
+                        </div>
+                        <div class="hub-why">
+                            <span class="mono-xs">Why it exists</span>
+                            <p>What growth teams do manually today, orchestrated across all teams. Knows what experiments are running, where they overlap, and when statistical significance is reached. Results automatically enrich the Insights Hub.</p>
+                        </div>
+                        <ul class="hub-layers">
+                            <li><strong>Experiment Orchestration</strong> — A/B tests, feature flags, multivariate tests across teams</li>
+                            <li><strong>Collision Detection</strong> — Flags overlapping experiments that could contaminate results</li>
+                            <li><strong>Auto-Alerting</strong> — Notifies when there's a clear winner or when metrics are being harmed</li>
+                        </ul>
+                        <div class="hub-owner">
+                            <span class="mono-xs">Owned by</span>
+                            <strong>Growth / Data Lead</strong>
+                        </div>
+                    </div>
+
+                    <div class="hub-detail blur-fade" data-delay="0.3">
+                        <div class="hub-detail-header hub-detail--local">
+                            <h3>Localisation &amp; Education Hub</h3>
+                        </div>
+                        <div class="hub-why">
+                            <span class="mono-xs">Why it exists</span>
+                            <p>Global users, inherently education-heavy product. Not just translation — cultural adaptation and contextual intelligence. A Japanese user needs different onboarding than a German one, beyond just language.</p>
+                        </div>
+                        <ul class="hub-layers">
+                            <li><strong>Cultural Adaptation</strong> — Market-specific messaging, education depth, and UX adjustments</li>
+                            <li><strong>Market Intelligence</strong> — "In Brazil, self-custody interest is rising due to currency instability — adapt messaging"</li>
+                            <li><strong>Education Content</strong> — Knowledge base, help center, and onboarding tailored per market maturity</li>
+                        </ul>
+                        <div class="hub-owner">
+                            <span class="mono-xs">Owned by</span>
+                            <strong>Localisation Lead</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Considered but integrated -->
+                <div class="integrated-note blur-fade">
+                    <h4>What we considered but integrated</h4>
+                    <div class="integrated-items">
+                        <div class="integrated-item">
+                            <strong>Code / Architecture Patterns</strong>
+                            <p>Could be a standalone hub, but makes more sense as an extension of Design Hub across the full stack — UI components + API patterns + coding standards readable by AI.</p>
+                        </div>
+                        <div class="integrated-item">
+                            <strong>Brand Hub</strong>
+                            <p>Overlap between Design Hub (visual identity) and Content Hub (tone of voice). Brand guidelines are a shared layer both hubs respect.</p>
+                        </div>
+                        <div class="integrated-item">
+                            <strong>Data Hub</strong>
+                            <p>Analytical infrastructure, not a standalone hub for Orchestrators. The Insights Hub consumes data infrastructure under the hood.</p>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- ═══ Architecture Diagram ═══ -->
+            <div class="arch-diagram-section blur-fade">
+                <h3 class="arch-title">How It All Connects</h3>
+                <p class="arch-subtitle">Each domain team has an Orchestrator who queries the hubs. Security is a mandatory checkpoint for every project.</p>
+
+                <div class="arch-diagram" id="arch-diagram">
+                    <svg viewBox="0 0 800 430" preserveAspectRatio="xMidYMid meet" class="arch-svg">
+                        <defs>
+                            <!-- Glow filters -->
+                            <filter id="glowG" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                            <filter id="glowR" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="8"/></filter>
+                            <!-- Animated dash -->
+                            <style>
+                                @keyframes flowDash { to { stroke-dashoffset: -40; } }
+                                @keyframes pulseRing { 0% { r: 14; opacity: 0.3; } 100% { r: 28; opacity: 0; } }
+                                @keyframes nodeFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+                            </style>
+                        </defs>
+
+                        <!-- ── Background ambient glows ── -->
+                        <circle cx="449" cy="310" r="70" fill="var(--hub-security)" opacity="0.03" filter="url(#softGlow)"/>
+                        <circle cx="400" cy="164" r="100" fill="var(--accent)" opacity="0.02" filter="url(#softGlow)"/>
+
+                        <!-- ── Layer labels ── -->
+                        <text class="arch-label" x="16" y="30">Domain Teams</text>
+                        <text class="arch-label" x="16" y="155">Orchestrators</text>
+                        <text class="arch-label" x="16" y="280">AI Hubs</text>
+
+                        <!-- ══════ CONNECTION LINES ══════ -->
+                        <!-- Teams → Orchestrators -->
+                        <g class="arch-team-lines" data-team="growth"><line x1="180" y1="60" x2="180" y2="148" class="arch-line arch-line--team"/></g>
+                        <g class="arch-team-lines" data-team="wallet"><line x1="310" y1="60" x2="310" y2="148" class="arch-line arch-line--team"/></g>
+                        <g class="arch-team-lines" data-team="trade"><line x1="440" y1="60" x2="440" y2="148" class="arch-line arch-line--team"/></g>
+                        <g class="arch-team-lines" data-team="earn"><line x1="570" y1="60" x2="570" y2="148" class="arch-line arch-line--team"/></g>
+                        <g class="arch-team-lines" data-team="foundation"><line x1="700" y1="60" x2="700" y2="148" class="arch-line arch-line--team"/></g>
+
+                        <!-- Orchestrators → Hubs -->
+                        <g class="arch-hub-lines" data-team="growth">
+                            <line x1="180" y1="180" x2="68" y2="288" class="arch-line arch-line--orch"/>
+                            <line x1="180" y1="180" x2="195" y2="288" class="arch-line arch-line--orch"/>
+                            <line x1="180" y1="180" x2="322" y2="288" class="arch-line arch-line--cross"/>
+                        </g>
+                        <g class="arch-hub-lines" data-team="wallet">
+                            <line x1="310" y1="180" x2="68" y2="288" class="arch-line arch-line--cross"/>
+                            <line x1="310" y1="180" x2="322" y2="288" class="arch-line arch-line--orch"/>
+                        </g>
+                        <g class="arch-hub-lines" data-team="trade">
+                            <line x1="440" y1="180" x2="68" y2="288" class="arch-line arch-line--cross"/>
+                            <line x1="440" y1="180" x2="322" y2="288" class="arch-line arch-line--orch"/>
+                            <line x1="440" y1="180" x2="576" y2="288" class="arch-line arch-line--orch"/>
+                        </g>
+                        <g class="arch-hub-lines" data-team="earn">
+                            <line x1="570" y1="180" x2="195" y2="288" class="arch-line arch-line--orch"/>
+                            <line x1="570" y1="180" x2="322" y2="288" class="arch-line arch-line--cross"/>
+                            <line x1="570" y1="180" x2="576" y2="288" class="arch-line arch-line--cross"/>
+                        </g>
+                        <g class="arch-hub-lines" data-team="foundation">
+                            <line x1="700" y1="180" x2="68" y2="288" class="arch-line arch-line--cross"/>
+                            <line x1="700" y1="180" x2="195" y2="288" class="arch-line arch-line--cross"/>
+                            <line x1="700" y1="180" x2="703" y2="288" class="arch-line arch-line--orch"/>
+                        </g>
+
+                        <!-- Security mandatory (all) -->
+                        <g class="arch-security-lines">
+                            <line x1="180" y1="180" x2="449" y2="288" class="arch-line arch-line--security"/>
+                            <line x1="310" y1="180" x2="449" y2="288" class="arch-line arch-line--security"/>
+                            <line x1="440" y1="180" x2="449" y2="288" class="arch-line arch-line--security"/>
+                            <line x1="570" y1="180" x2="449" y2="288" class="arch-line arch-line--security"/>
+                            <line x1="700" y1="180" x2="449" y2="288" class="arch-line arch-line--security"/>
+                        </g>
+
+                        <!-- ══════ ANIMATED PARTICLES ══════ -->
+                        <circle r="3" fill="var(--accent)" filter="url(#glowG)" opacity="0.8"><animateMotion dur="2.8s" repeatCount="indefinite" path="M440,58 L440,178 L322,290"/></circle>
+                        <circle r="3" fill="var(--hub-security)" filter="url(#glowR)" opacity="0.7"><animateMotion dur="3.2s" repeatCount="indefinite" path="M180,58 L180,178 L449,290" begin="0.6s"/></circle>
+                        <circle r="3" fill="var(--accent)" filter="url(#glowG)" opacity="0.8"><animateMotion dur="3.5s" repeatCount="indefinite" path="M700,58 L700,178 L195,290" begin="1.2s"/></circle>
+                        <circle r="2.5" fill="var(--hub-security)" filter="url(#glowR)" opacity="0.6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M570,58 L570,178 L449,290" begin="2s"/></circle>
+                        <circle r="3" fill="var(--accent)" filter="url(#glowG)" opacity="0.7"><animateMotion dur="3s" repeatCount="indefinite" path="M310,58 L310,178 L322,290" begin="0.3s"/></circle>
+                        <circle r="2.5" fill="var(--hub-experiment)" opacity="0.6"><animateMotion dur="3.4s" repeatCount="indefinite" path="M440,58 L440,178 L576,290" begin="1.8s"/></circle>
+
+                        <!-- ══════ DOMAIN TEAM NODES ══════ -->
+                        <g class="arch-g-team" data-team="growth" cursor="pointer">
+                            <rect x="128" y="36" width="104" height="34" rx="8" class="arch-rect arch-rect--team"/>
+                            <text x="180" y="58" class="arch-text arch-text--team">Growth</text>
+                        </g>
+                        <g class="arch-g-team" data-team="wallet" cursor="pointer">
+                            <rect x="258" y="36" width="104" height="34" rx="8" class="arch-rect arch-rect--team"/>
+                            <text x="310" y="58" class="arch-text arch-text--team">Wallet</text>
+                        </g>
+                        <g class="arch-g-team" data-team="trade" cursor="pointer">
+                            <rect x="388" y="36" width="104" height="34" rx="8" class="arch-rect arch-rect--team"/>
+                            <text x="440" y="58" class="arch-text arch-text--team">Trade</text>
+                        </g>
+                        <g class="arch-g-team" data-team="earn" cursor="pointer">
+                            <rect x="518" y="36" width="104" height="34" rx="8" class="arch-rect arch-rect--team"/>
+                            <text x="570" y="58" class="arch-text arch-text--team">Earn</text>
+                        </g>
+                        <g class="arch-g-team" data-team="foundation" cursor="pointer">
+                            <rect x="636" y="36" width="128" height="34" rx="8" class="arch-rect arch-rect--team"/>
+                            <text x="700" y="58" class="arch-text arch-text--team">Foundation</text>
+                        </g>
+
+                        <!-- ══════ ORCHESTRATOR NODES ══════ -->
+                        <g class="arch-g-orch" data-team="growth">
+                            <circle cx="180" cy="164" r="14" class="arch-circle arch-circle--orch"/><circle cx="180" cy="164" r="14" class="arch-ring"><animate attributeName="r" values="14;28" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0" dur="2.5s" repeatCount="indefinite"/></circle>
+                            <circle cx="180" cy="164" r="4" fill="var(--accent)" opacity="0.7"/>
+                        </g>
+                        <g class="arch-g-orch" data-team="wallet">
+                            <circle cx="310" cy="164" r="14" class="arch-circle arch-circle--orch"/><circle cx="310" cy="164" r="14" class="arch-ring"><animate attributeName="r" values="14;28" dur="2.5s" repeatCount="indefinite" begin="0.5s"/><animate attributeName="opacity" values="0.3;0" dur="2.5s" repeatCount="indefinite" begin="0.5s"/></circle>
+                            <circle cx="310" cy="164" r="4" fill="var(--accent)" opacity="0.7"/>
+                        </g>
+                        <g class="arch-g-orch" data-team="trade">
+                            <circle cx="440" cy="164" r="14" class="arch-circle arch-circle--orch"/><circle cx="440" cy="164" r="14" class="arch-ring"><animate attributeName="r" values="14;28" dur="2.5s" repeatCount="indefinite" begin="1s"/><animate attributeName="opacity" values="0.3;0" dur="2.5s" repeatCount="indefinite" begin="1s"/></circle>
+                            <circle cx="440" cy="164" r="4" fill="var(--accent)" opacity="0.7"/>
+                        </g>
+                        <g class="arch-g-orch" data-team="earn">
+                            <circle cx="570" cy="164" r="14" class="arch-circle arch-circle--orch"/><circle cx="570" cy="164" r="14" class="arch-ring"><animate attributeName="r" values="14;28" dur="2.5s" repeatCount="indefinite" begin="1.5s"/><animate attributeName="opacity" values="0.3;0" dur="2.5s" repeatCount="indefinite" begin="1.5s"/></circle>
+                            <circle cx="570" cy="164" r="4" fill="var(--accent)" opacity="0.7"/>
+                        </g>
+                        <g class="arch-g-orch" data-team="foundation">
+                            <circle cx="700" cy="164" r="14" class="arch-circle arch-circle--orch"/><circle cx="700" cy="164" r="14" class="arch-ring"><animate attributeName="r" values="14;28" dur="2.5s" repeatCount="indefinite" begin="2s"/><animate attributeName="opacity" values="0.3;0" dur="2.5s" repeatCount="indefinite" begin="2s"/></circle>
+                            <circle cx="700" cy="164" r="4" fill="var(--accent)" opacity="0.7"/>
+                        </g>
+
+                        <!-- ══════ HUB NODES ══════ -->
+                        <g class="arch-g-hub" data-hub="design">
+                            <rect x="23" y="290" width="90" height="54" rx="10" class="arch-rect arch-rect--hub" style="stroke:var(--hub-design);stroke-opacity:0.35"/>
+                            <circle cx="68" cy="306" r="10" fill="var(--hub-design)" opacity="0.08"/>
+                            <circle cx="68" cy="306" r="10" fill="none" stroke="var(--hub-design)" stroke-width="1.2" opacity="0.5"/>
+                            <text x="68" y="336" class="arch-text arch-text--hub" fill="var(--hub-design)">Design</text>
+                        </g>
+                        <g class="arch-g-hub" data-hub="content">
+                            <rect x="150" y="290" width="90" height="54" rx="10" class="arch-rect arch-rect--hub" style="stroke:var(--hub-content);stroke-opacity:0.35"/>
+                            <circle cx="195" cy="306" r="10" fill="var(--hub-content)" opacity="0.08"/>
+                            <circle cx="195" cy="306" r="10" fill="none" stroke="var(--hub-content)" stroke-width="1.2" opacity="0.5"/>
+                            <text x="195" y="336" class="arch-text arch-text--hub" fill="var(--hub-content)">Content</text>
+                        </g>
+                        <g class="arch-g-hub" data-hub="insights">
+                            <rect x="277" y="290" width="90" height="54" rx="10" class="arch-rect arch-rect--hub" style="stroke:var(--hub-insights);stroke-opacity:0.35"/>
+                            <circle cx="322" cy="306" r="10" fill="var(--hub-insights)" opacity="0.08"/>
+                            <circle cx="322" cy="306" r="10" fill="none" stroke="var(--hub-insights)" stroke-width="1.2" opacity="0.5"/>
+                            <text x="322" y="336" class="arch-text arch-text--hub" fill="var(--hub-insights)">Insights</text>
+                        </g>
+                        <g class="arch-g-hub" data-hub="security">
+                            <rect x="399" y="290" width="100" height="62" rx="10" class="arch-rect arch-rect--hub arch-rect--security" style="stroke:var(--hub-security);stroke-opacity:0.45"/>
+                            <circle cx="449" cy="306" r="10" fill="var(--hub-security)" opacity="0.1"/>
+                            <circle cx="449" cy="306" r="10" fill="none" stroke="var(--hub-security)" stroke-width="1.5" opacity="0.6"/>
+                            <text x="449" y="332" class="arch-text arch-text--hub" fill="var(--hub-security)">Security</text>
+                            <text x="449" y="346" class="arch-text-tiny" fill="var(--hub-security)">MANDATORY</text>
+                        </g>
+                        <g class="arch-g-hub" data-hub="experiment">
+                            <rect x="526" y="290" width="100" height="54" rx="10" class="arch-rect arch-rect--hub" style="stroke:var(--hub-experiment);stroke-opacity:0.35"/>
+                            <circle cx="576" cy="306" r="10" fill="var(--hub-experiment)" opacity="0.08"/>
+                            <circle cx="576" cy="306" r="10" fill="none" stroke="var(--hub-experiment)" stroke-width="1.2" opacity="0.5"/>
+                            <text x="576" y="336" class="arch-text arch-text--hub" fill="var(--hub-experiment)">Experiment</text>
+                        </g>
+                        <g class="arch-g-hub" data-hub="localisation">
+                            <rect x="653" y="290" width="100" height="54" rx="10" class="arch-rect arch-rect--hub" style="stroke:var(--hub-local);stroke-opacity:0.35"/>
+                            <circle cx="703" cy="306" r="10" fill="var(--hub-local)" opacity="0.08"/>
+                            <circle cx="703" cy="306" r="10" fill="none" stroke="var(--hub-local)" stroke-width="1.2" opacity="0.5"/>
+                            <text x="703" y="336" class="arch-text arch-text--hub" fill="var(--hub-local)">Localisation</text>
+                        </g>
+
+                        <!-- ══════ LEGEND ══════ -->
+                        <g class="arch-legend-group" transform="translate(400, 405)" text-anchor="middle">
+                            <line x1="-190" y1="0" x2="-165" y2="0" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+                            <text x="-130" y="3" class="arch-text-legend">Queries hub</text>
+                            <line x1="-60" y1="0" x2="-35" y2="0" stroke="var(--hub-security)" stroke-width="1.5" opacity="0.6"/>
+                            <text x="18" y="3" class="arch-text-legend">Mandatory</text>
+                            <line x1="70" y1="0" x2="95" y2="0" stroke="var(--gray-7)" stroke-width="1" opacity="0.4" stroke-dasharray="3 3"/>
+                            <text x="140" y="3" class="arch-text-legend">Cross-hub</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ ORCHESTRATOR ═══════════════════════════════════ -->
+    <section id="orchestrator" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[04]</span>
+                <h2 class="section-title blur-fade">The Orchestrator</h2>
+                <p class="section-subtitle blur-fade">A new kind of product leader</p>
+            </div>
+
+            <div class="orchestrator-layout">
+                <div class="orchestrator-description blur-fade">
+                    <p class="lead-text">The Orchestrator combines PM, designer, and technical leader. <strong>Not a solopreneur</strong> — a leader of a smaller team who can:</p>
+
+                    <div class="competency-list">
+                        <div class="competency blur-fade" data-delay="0.1">
+                            <span class="competency-number mono-xs">01</span>
+                            <div><h4>Define the problem and strategic intent</h4><span class="competency-tag mono-xs">PM competency</span></div>
+                        </div>
+                        <div class="competency blur-fade" data-delay="0.15">
+                            <span class="competency-number mono-xs">02</span>
+                            <div><h4>Design and validate the user experience</h4><span class="competency-tag mono-xs">Design competency</span></div>
+                        </div>
+                        <div class="competency blur-fade" data-delay="0.2">
+                            <span class="competency-number mono-xs">03</span>
+                            <div><h4>Effectively prompt and direct AI tools</h4><span class="competency-tag mono-xs">Technical literacy</span></div>
+                        </div>
+                        <div class="competency blur-fade" data-delay="0.25">
+                            <span class="competency-number mono-xs">04</span>
+                            <div><h4>Communicate with shared hubs</h4><span class="competency-tag mono-xs">Orchestration</span></div>
+                        </div>
+                        <div class="competency blur-fade" data-delay="0.3">
+                            <span class="competency-number mono-xs">05</span>
+                            <div><h4>Be accountable for outcomes, not output</h4><span class="competency-tag mono-xs">Ownership</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="taste-principle blur-fade" data-delay="0.2">
+                    <div class="taste-header">
+                        <span class="mono-xs">Key Principle</span>
+                        <h3>Taste &gt; Skills</h3>
+                    </div>
+                    <blockquote>
+                        "In the age of AI, taste will become more important than skills as much of skill-based work is offloaded to compute."
+                        <cite>— Scott Belsky &amp; Guillermo Rauch</cite>
+                    </blockquote>
+                    <p>When looking for Orchestrators, prioritize <strong>product sense and design taste</strong>, not the strongest technical profiles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ MODEL FOR TREZOR ═══════════════════════════════ -->
+    <section id="model" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[05]</span>
+                <h2 class="section-title blur-fade">Proposed Model for Trezor</h2>
+                <p class="section-subtitle blur-fade">From domain teams to hub-augmented teams</p>
+            </div>
+
+            <!-- Before / After -->
+            <div class="comparison blur-fade">
+                <div class="comparison-col comparison-col--before">
+                    <h3 class="comparison-label mono-xs">Today</h3>
+                    <div class="comparison-items">
+                        <div class="comparison-item"><span class="item-label">Team size</span><span class="item-value">PM + Designer + Tech Lead + 3–4 engs</span></div>
+                        <div class="comparison-item"><span class="item-label">Teams</span><span class="item-value">~6 domain teams</span></div>
+                        <div class="comparison-item"><span class="item-label">Shared resources</span><span class="item-value">Design system (Figma/Zeroheight)</span></div>
+                        <div class="comparison-item"><span class="item-label">Discovery</span><span class="item-value">PM + Designer research</span></div>
+                        <div class="comparison-item"><span class="item-label">UI/UX creation</span><span class="item-value">Designer manually</span></div>
+                        <div class="comparison-item"><span class="item-label">Copy</span><span class="item-value">Ad hoc, per-feature</span></div>
+                        <div class="comparison-item"><span class="item-label">Delivery</span><span class="item-value">Sprint-based</span></div>
+                    </div>
+                </div>
+                <div class="comparison-arrow">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+                <div class="comparison-col comparison-col--after">
+                    <h3 class="comparison-label mono-xs">Target State</h3>
+                    <div class="comparison-items">
+                        <div class="comparison-item"><span class="item-label">Team size</span><span class="item-value hl">Orchestrator + Tech Lead + 1–2 engs</span></div>
+                        <div class="comparison-item"><span class="item-label">Teams</span><span class="item-value hl">More teams, but smaller</span></div>
+                        <div class="comparison-item"><span class="item-label">Shared resources</span><span class="item-value hl">Design Hub + Content Hub + Insights Hub</span></div>
+                        <div class="comparison-item"><span class="item-label">Discovery</span><span class="item-value hl">Orchestrator + Insights Hub (AI)</span></div>
+                        <div class="comparison-item"><span class="item-label">UI/UX creation</span><span class="item-value hl">Orchestrator + Design Hub (AI + human)</span></div>
+                        <div class="comparison-item"><span class="item-label">Copy</span><span class="item-value hl">Content Hub (automated consistency)</span></div>
+                        <div class="comparison-item"><span class="item-label">Delivery</span><span class="item-value hl">Continuous, AI-accelerated</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Workflow Simulator v2 -->
+            <div class="sim2 blur-fade" id="sim2">
+                <div class="sim2-topbar">
+                    <div class="sim2-topbar-left">
+                        <span class="sim2-indicator"></span>
+                        <span class="mono-xs">Live Scenario</span>
+                    </div>
+                    <h3>Growth team redesigns onboarding</h3>
+                    <button class="sim2-play" id="sim2-play">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                        <span>Play scenario</span>
+                    </button>
+                </div>
+
+                <div class="sim2-body">
+                    <!-- Left: Conversation log -->
+                    <div class="sim2-log" id="sim2-log">
+                        <div class="sim2-placeholder" id="sim2-placeholder">Press play to watch the Orchestrator work through a real scenario</div>
+                    </div>
+
+                    <!-- Right: Visual output panels -->
+                    <div class="sim2-visual" id="sim2-visual">
+                        <!-- Empty state -->
+                        <div class="sim2-panel active" data-panel="empty">
+                            <div class="sim2-empty">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gray-5)" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+                                <span>Awaiting orchestrator input</span>
+                            </div>
+                        </div>
+
+                        <!-- Insights: Data visualization -->
+                        <div class="sim2-panel" data-panel="insights">
+                            <div class="sim2-ptitle insights-color">Onboarding Analysis</div>
+                            <div class="sim2-data">
+                                <div class="sim2-data-row">
+                                    <div class="sim2-data-info"><span class="sim2-data-label">Drop-off at step 3</span><span class="sim2-data-val">47%</span></div>
+                                    <div class="sim2-bar"><div class="sim2-bar-fill sim2-bar--red" style="--w:47%"></div></div>
+                                </div>
+                                <div class="sim2-data-row">
+                                    <div class="sim2-data-info"><span class="sim2-data-label">Mobile conversion gap</span><span class="sim2-data-val">-23%</span></div>
+                                    <div class="sim2-bar"><div class="sim2-bar-fill sim2-bar--amber" style="--w:23%"></div></div>
+                                </div>
+                                <div class="sim2-data-row">
+                                    <div class="sim2-data-info"><span class="sim2-data-label">Exit survey: "seed phrase confusing"</span><span class="sim2-data-val">68%</span></div>
+                                    <div class="sim2-bar"><div class="sim2-bar-fill sim2-bar--red" style="--w:68%"></div></div>
+                                </div>
+                            </div>
+                            <div class="sim2-finding">"Users abandon when they don't understand why they need to write down 12 words"</div>
+                        </div>
+
+                        <!-- Security: Checklist -->
+                        <div class="sim2-panel" data-panel="security">
+                            <div class="sim2-ptitle security-color">Security Audit</div>
+                            <div class="sim2-checks">
+                                <div class="sim2-check sim2-check--pass"><span>&#10003;</span> MiCA compliance verified</div>
+                                <div class="sim2-check sim2-check--pass"><span>&#10003;</span> Seed phrase flow meets security standards</div>
+                                <div class="sim2-check sim2-check--pass"><span>&#10003;</span> Biometric auth — no key material exposed</div>
+                                <div class="sim2-check sim2-check--warn"><span>&#9888;</span> Add clipboard access warning on mobile</div>
+                            </div>
+                            <div class="sim2-verdict">Approved with 1 condition</div>
+                        </div>
+
+                        <!-- Design: Wireframe skeletons -->
+                        <div class="sim2-panel" data-panel="design">
+                            <div class="sim2-ptitle design-color">3 Variants Generated</div>
+                            <div class="sim2-wireframes">
+                                <div class="sim2-wf">
+                                    <div class="wf-topbar"></div>
+                                    <div class="wf-hero-img"></div>
+                                    <div class="wf-line wf-line--80"></div>
+                                    <div class="wf-line wf-line--60"></div>
+                                    <div class="wf-line wf-line--40"></div>
+                                    <div class="wf-cta"></div>
+                                    <span class="wf-tag">A: Progressive disclosure</span>
+                                </div>
+                                <div class="sim2-wf">
+                                    <div class="wf-topbar"></div>
+                                    <div class="wf-split">
+                                        <div class="wf-img-block"></div>
+                                        <div class="wf-text-block">
+                                            <div class="wf-line wf-line--90"></div>
+                                            <div class="wf-line wf-line--70"></div>
+                                            <div class="wf-line wf-line--50"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wf-cta"></div>
+                                    <span class="wf-tag">B: Split hero</span>
+                                </div>
+                                <div class="sim2-wf">
+                                    <div class="wf-topbar"></div>
+                                    <div class="wf-stepper">
+                                        <div class="wf-step-dot"></div>
+                                        <div class="wf-step-line"></div>
+                                        <div class="wf-step-dot active"></div>
+                                        <div class="wf-step-line"></div>
+                                        <div class="wf-step-dot"></div>
+                                    </div>
+                                    <div class="wf-card-skel"></div>
+                                    <div class="wf-cta"></div>
+                                    <span class="wf-tag">C: Step-by-step wizard</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content: Copy blocks -->
+                        <div class="sim2-panel" data-panel="content">
+                            <div class="sim2-ptitle content-color">Copy Generated — 14 strings</div>
+                            <div class="sim2-copies">
+                                <div class="sim2-copy"><span class="sim2-copy-label">Welcome</span><p>"Your keys. Your crypto. Let's get you set up."</p></div>
+                                <div class="sim2-copy"><span class="sim2-copy-label">Seed phrase intro</span><p>"These 12 words are the only way to recover your wallet. Write them down — we can't do it for you."</p></div>
+                                <div class="sim2-copy"><span class="sim2-copy-label">Success</span><p>"You're all set. Your Trezor is ready to protect your assets."</p></div>
+                                <div class="sim2-copy"><span class="sim2-copy-label">Error</span><p>"Something didn't work. Don't worry — your funds are safe. Let's try again."</p></div>
+                            </div>
+                            <div class="sim2-copy-badge">2 FAQ articles flagged for update</div>
+                        </div>
+
+                        <!-- Summary -->
+                        <div class="sim2-panel" data-panel="summary">
+                            <div class="sim2-ptitle accent-color">Cycle Complete</div>
+                            <div class="sim2-metrics">
+                                <div class="sim2-metric"><span class="sim2-metric-num">3</span><span>design variants</span></div>
+                                <div class="sim2-metric"><span class="sim2-metric-num">14</span><span>copy strings</span></div>
+                                <div class="sim2-metric"><span class="sim2-metric-num">1</span><span>security condition</span></div>
+                                <div class="sim2-metric"><span class="sim2-metric-num accent-color">&#10003;</span><span>knowledge captured</span></div>
+                            </div>
+                            <p class="sim2-summary-note">All results fed back into Insights Hub — available to every team for the next project.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sim2-bottombar">
+                    <div class="sim2-step-label" id="sim2-step-label">Ready</div>
+                    <div class="sim2-dots" id="sim2-dots">
+                        <div class="sim2-dot"></div><div class="sim2-dot"></div><div class="sim2-dot"></div>
+                        <div class="sim2-dot"></div><div class="sim2-dot"></div><div class="sim2-dot"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roles -->
+            <div class="roles-section blur-fade">
+                <h3>Roles in the New Model</h3>
+                <div class="roles-grid">
+                    <div class="role-card"><h4>Orchestrator</h4><p>Product strategy, design sense, technical literacy, prompt engineering, outcome ownership</p><p class="text-muted">Primary user of all three hubs.</p></div>
+                    <div class="role-card"><h4>Tech Lead</h4><p>Architecture, code review, AI-augmented development, system integration</p><p class="text-muted">Consumes Design Hub for implementation.</p></div>
+                    <div class="role-card"><h4>Hub Engineers</h4><p>DS, content pipelines, data infrastructure</p><p class="text-muted">Own hubs as a product.</p></div>
+                    <div class="role-card"><h4>Design Lead</h4><p>Design governance, brand integrity, AI tool training, systems thinking</p><p class="text-muted">Owns the Design Hub.</p></div>
+                    <div class="role-card"><h4>Research Lead</h4><p>User research methodology, data analysis, synthetic research</p><p class="text-muted">Owns the Insights Hub.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ ROADMAP ═══════════════════════════════════ -->
+    <section id="roadmap" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[06]</span>
+                <h2 class="section-title blur-fade">Implementation Roadmap</h2>
+                <p class="section-subtitle blur-fade">A phased approach — gradual, measured, reversible</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-phase blur-fade">
+                    <div class="phase-marker"><div class="phase-dot"></div></div>
+                    <div class="phase-content">
+                        <span class="phase-period mono-xs">Q2 – Q3 2026</span>
+                        <h3>Phase 1: Foundations</h3>
+                        <ul>
+                            <li><strong>Audit current workflows</strong> — Map where teams spend time, find AI-suitable tasks</li>
+                            <li><strong>Build the foundational Design Hub</strong> — AI-readable format (MCP, metadata)</li>
+                            <li><strong>Pilot the Insights Hub</strong> — Connect feedback sources into a single system</li>
+                            <li><strong>Upskill the team</strong> — Prompt engineering, AI prototyping, AI research</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-phase blur-fade" data-delay="0.15">
+                    <div class="phase-marker"><div class="phase-dot phase-dot--active"></div></div>
+                    <div class="phase-content">
+                        <span class="phase-period mono-xs">Q3 – Q4 2026</span>
+                        <h3>Phase 2: Pilot Team</h3>
+                        <ul>
+                            <li><strong>Select one domain team</strong> (e.g., Growth) for the pilot Orchestrator model</li>
+                            <li><strong>Test hub-based workflow end-to-end</strong> — From insight to delivery</li>
+                            <li><strong>Launch Content Hub</strong> — Tone of voice + AI copy with human validation</li>
+                            <li><strong>Measure</strong> — Cycle speed, output quality, team satisfaction</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-phase blur-fade" data-delay="0.3">
+                    <div class="phase-marker"><div class="phase-dot"></div></div>
+                    <div class="phase-content">
+                        <span class="phase-period mono-xs">2027</span>
+                        <h3>Phase 3: Scaling</h3>
+                        <ul>
+                            <li><strong>Extend the Orchestrator model</strong> to additional teams</li>
+                            <li><strong>Connect hubs</strong> into an integrated orchestration layer</li>
+                            <li><strong>Add predictive capabilities</strong> — Predict needs and breaking changes</li>
+                            <li><strong>Increase team count</strong> — Smaller but more, hubs eliminate duplication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ RISKS ═══════════════════════════════════════ -->
+    <section id="risks" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[07]</span>
+                <h2 class="section-title blur-fade">Risks &amp; Mitigations</h2>
+            </div>
+            <div class="risks-grid">
+                <div class="risk-card blur-fade"><h4>Output Uniformity</h4><p>AI may produce generic outputs.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Design Lead as quality guardian. Human-in-the-loop. Guardrails in Design Hub.</p></div></div>
+                <div class="risk-card blur-fade" data-delay="0.08"><h4>Loss of Deep Expertise</h4><p>Orchestrators may become "mile wide, inch deep."</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Preserve Hub Leads. Continuous learning. The tool is not the skill.</p></div></div>
+                <div class="risk-card blur-fade" data-delay="0.16"><h4>Team Resistance</h4><p>People may feel threatened by changing roles.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Transparent communication. Training as investment. Gradual pilot rollout.</p></div></div>
+                <div class="risk-card blur-fade" data-delay="0.24"><h4>Hub as Bottleneck</h4><p>Hubs can't keep up with demand.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Dedicated hub teams. Self-service access. SLAs on responses.</p></div></div>
+                <div class="risk-card blur-fade" data-delay="0.32"><h4>The Klarna Effect</h4><p>Overly aggressive AI replacement.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Augmentation, not substitution. Measure quality, not just speed.</p></div></div>
+                <div class="risk-card blur-fade" data-delay="0.4"><h4>AI Output Quality</h4><p>Hallucinations, bias, inconsistency.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Automated validation. Red teaming. Feedback loops into hubs.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ CONCLUSION ═══════════════════════════════════ -->
+    <section id="conclusion" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number mono-xs blur-fade">[08]</span>
+                <h2 class="section-title blur-fade">Key Takeaways</h2>
+                <p class="section-subtitle blur-fade">Consensus across all research sources</p>
+            </div>
+
+            <div class="takeaways-grid">
+                <div class="takeaway blur-fade"><span class="takeaway-number mono-xs">01</span><h4>Teams will shrink but gain greater scope</h4><p>Gartner, SVPG, and Reforge all agree.</p></div>
+                <div class="takeaway blur-fade" data-delay="0.08"><span class="takeaway-number mono-xs">02</span><h4>Centralized AI hubs are the future</h4><p>PwC, Gartner, and Reforge confirm from different angles.</p></div>
+                <div class="takeaway blur-fade" data-delay="0.16"><span class="takeaway-number mono-xs">03</span><h4>Roles are converging, but not completely</h4><p>The Orchestrator emerges, but deep expertise remains critical.</p></div>
+                <div class="takeaway blur-fade" data-delay="0.24"><span class="takeaway-number mono-xs">04</span><h4>Taste becomes the differentiator</h4><p>Skills will be commoditized by AI. Product sense defines winners.</p></div>
+                <div class="takeaway blur-fade" data-delay="0.32"><span class="takeaway-number mono-xs">05</span><h4>Design systems become intelligent ecosystems</h4><p>From style guides to living, AI-enforced systems.</p></div>
+                <div class="takeaway blur-fade" data-delay="0.4"><span class="takeaway-number mono-xs">06</span><h4>Augmentation wins over substitution</h4><p>Klarna showed the opposite. Change how people work with AI.</p></div>
+            </div>
+
+            <div class="final-statement blur-fade">
+                <p class="final-text">Trezor has the opportunity to be an <strong>early mover</strong> in this transformation.</p>
+                <p class="final-subtext">The hub-based architecture model is in direct alignment with trends documented by PwC, Gartner, SVPG, Reforge, and others.</p>
+                <span class="mono-xs">Daniel Valčík · March 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sources -->
+    <section id="sources" class="section section--compact">
+        <div class="container">
+            <span class="section-number mono-xs blur-fade">[Sources]</span>
+            <div class="sources-list blur-fade">
+                <div class="source-item"><strong>SVPG</strong> — Marty Cagan, 2025</div>
+                <div class="source-item"><strong>Reforge</strong> — Brian Balfour, 2025–2026</div>
+                <div class="source-item"><strong>PwC</strong> — 2026 AI Predictions</div>
+                <div class="source-item"><strong>Gartner</strong> — AI Agents 2026</div>
+                <div class="source-item"><strong>IBM Think</strong> — 2026 Trends</div>
+                <div class="source-item"><strong>Insight Partners</strong> — AI Adoption 2026</div>
+                <div class="source-item"><strong>IMD</strong> — AI Trends 2026</div>
+                <div class="source-item"><strong>CIO.com</strong> — Composite Squads</div>
+                <div class="source-item"><strong>Klarna</strong> — Case Study 2025</div>
+                <div class="source-item"><strong>Vercel</strong> — Guillermo Rauch, 2025</div>
+                <div class="source-item"><strong>Microsoft Design</strong> — AI Era DS, 2025</div>
+                <div class="source-item"><strong>Daniel Valčík</strong> — "Designing Tomorrow", 2025</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span class="mono-xs">2026</span>
+            <span class="mono-xs">Trezor · Product Design</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
