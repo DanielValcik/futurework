@@ -181,6 +181,80 @@
         explainerSteps[0].classList.add('active');
     }
 
+    // ─── Evolution Timeline (scroll-driven, IO trigger-line) ──
+    const evoPeople = document.getElementById('evo-people');
+    const evoYear = document.getElementById('evo-year');
+    const evoSize = document.getElementById('evo-size');
+    const evoTech = document.getElementById('evo-tech');
+    const evoEras = document.querySelectorAll('.evo-era');
+    const evoVisInner = document.querySelector('.evo-vis-inner');
+
+    let evoDots = [];
+    const EVO_MAX_DOTS = 22;
+    let evoCurrentIdx = -1;
+
+    if (evoPeople && evoEras.length) {
+        // Create dot elements
+        for (let i = 0; i < EVO_MAX_DOTS; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'evo-person';
+            evoPeople.appendChild(dot);
+            evoDots.push(dot);
+        }
+
+        function evoSetEra(index) {
+            if (index === evoCurrentIdx) return;
+            evoCurrentIdx = index;
+            const era = evoEras[index];
+            if (!era) return;
+
+            const targetPeople = parseInt(era.dataset.people, 10) || 5;
+            const isHubs = era.dataset.hubs === 'true';
+
+            evoYear.textContent = era.dataset.year;
+            evoSize.textContent = era.dataset.size;
+            evoTech.textContent = era.dataset.tech;
+
+            if (evoVisInner) {
+                evoVisInner.classList.toggle('now', era.classList.contains('evo-era--now'));
+            }
+
+            evoDots.forEach((dot, i) => {
+                const isHub = isHubs && i >= targetPeople && i < targetPeople + 6;
+                if (i < targetPeople) {
+                    dot.className = 'evo-person';
+                    dot.style.transitionDelay = (i * 30) + 'ms';
+                } else if (isHub) {
+                    dot.className = 'evo-person hub-dot';
+                    dot.style.transitionDelay = ((i - targetPeople) * 60 + 200) + 'ms';
+                } else {
+                    dot.className = 'evo-person hidden';
+                    dot.style.transitionDelay = ((EVO_MAX_DOTS - i) * 20) + 'ms';
+                }
+            });
+
+            evoEras.forEach((e, i) => e.classList.toggle('active', i === index));
+        }
+
+        // Trigger-line pattern: rootMargin shrinks viewport to a thin line at ~45% from top
+        // When an era's edge crosses this line, it becomes active
+        const evoObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const idx = Array.from(evoEras).indexOf(entry.target);
+                        if (idx !== -1) evoSetEra(idx);
+                    }
+                });
+            },
+            { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+        );
+        evoEras.forEach((era) => evoObserver.observe(era));
+
+        // Set initial state
+        evoSetEra(0);
+    }
+
     // ─── Stat Counter Animation ────────────────────────────
     const statNumbers = document.querySelectorAll('.stat-number');
     function animateCounter(el) {
@@ -231,9 +305,36 @@
             navbar.classList.remove('scrolled');
         }
 
-        // Scroll indicator fade
+        // Scroll indicator: fades out early and quickly
         if (scrollIndicator) {
-            scrollIndicator.style.opacity = Math.max(0, 1 - scrollY / 300);
+            const indProgress = Math.min(1, scrollY / (winHeight * 0.15));
+            scrollIndicator.style.opacity = 1 - indProgress;
+            scrollIndicator.style.transform = `translateY(${indProgress * 20}px)`;
+            scrollIndicator.style.filter = `blur(${indProgress * 6}px)`;
+        }
+
+        // Hero scroll-out + Stats scroll-in (connected transition)
+        const heroContent = document.getElementById('hero-content');
+        const statsSection = document.getElementById('stats');
+        if (heroContent && statsSection) {
+            const scrollOutStart = winHeight * 0.08;
+            const scrollOutEnd = winHeight * 0.55;
+            const progress = Math.max(0, Math.min(1, (scrollY - scrollOutStart) / (scrollOutEnd - scrollOutStart)));
+
+            // Hero text: scale up + blur + fade out
+            heroContent.style.transform = `translateY(${progress * -30}px) scale(${1 + progress * 0.1})`;
+            heroContent.style.filter = `blur(${progress * 14}px)`;
+            heroContent.style.opacity = 1 - progress;
+
+            // Stats: start small + invisible (far away), arrive to normal as hero fades
+            const statsProgress = Math.max(0, Math.min(1, (progress - 0.3) / 0.7)); // starts at 30% of hero fade
+            const statsScale = 0.85 + statsProgress * 0.15;   // 0.85 → 1.0 (comes from "behind")
+            const statsBlur = (1 - statsProgress) * 6;         // 6px → 0
+            const statsOpacity = statsProgress;
+
+            statsSection.style.transform = `scale(${statsScale})`;
+            statsSection.style.filter = `blur(${statsBlur}px)`;
+            statsSection.style.opacity = statsOpacity;
         }
 
         // Sidebar
@@ -279,6 +380,7 @@
                 link.classList.toggle('active', link.dataset.section === activeId);
             });
         }
+
     }
 
     window.addEventListener('scroll', () => {

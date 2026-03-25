@@ -61,34 +61,38 @@
     </div>
 
     <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
-    <section id="hero">
-        <canvas id="hero-canvas" class="hero-canvas"></canvas>
-        <div class="hero-bg-grid"></div>
-        <div class="hero-content">
-            <h1 class="hero-title" id="hero-title">
-                <span class="hero-word">The</span>
-                <span class="hero-word">future</span>
-                <span class="hero-word">of</span>
-                <span class="hero-word">product</span>
-                <span class="hero-word">teams</span>
-                <span class="hero-word">belongs</span>
-                <span class="hero-word">to</span>
-                <span class="hero-word accent-word">orchestrators.</span>
-            </h1>
-            <p class="hero-sub mono-sm" id="hero-sub">Daniel Valčík</p>
-            <p class="hero-role" id="hero-role">Head of Design / Trezor / March 2026</p>
-        </div>
-        <div class="scroll-indicator" id="scroll-indicator">
-            <span class="mono-xs">scroll down</span>
-            <div class="scroll-mouse">
-                <div class="scroll-mouse-border">
-                    <div class="scroll-mouse-dot"></div>
-                </div>
-                <div class="scroll-chevrons">
-                    <div class="scroll-chevron"></div>
-                    <div class="scroll-chevron"></div>
+    <section id="hero" class="hero-scroll-wrapper">
+        <div class="hero-sticky">
+            <canvas id="hero-canvas" class="hero-canvas"></canvas>
+            <div class="hero-bg-grid"></div>
+            <div class="hero-content" id="hero-content">
+                <h1 class="hero-title" id="hero-title">
+                    <span class="hero-word">The</span>
+                    <span class="hero-word">future</span>
+                    <span class="hero-word">of</span>
+                    <span class="hero-word">product</span>
+                    <span class="hero-word">teams</span>
+                    <span class="hero-word">belongs</span>
+                    <span class="hero-word">to</span>
+                    <span class="hero-word accent-word">orchestrators.</span>
+                </h1>
+                <p class="hero-sub mono-sm" id="hero-sub">Daniel Valčík</p>
+                <p class="hero-role" id="hero-role">Head of Design / Trezor / March 2026</p>
+            </div>
+            <div class="scroll-indicator" id="scroll-indicator">
+                <span class="mono-xs">scroll down</span>
+                <div class="scroll-mouse">
+                    <div class="scroll-mouse-border">
+                        <div class="scroll-mouse-dot"></div>
+                    </div>
+                    <div class="scroll-chevrons">
+                        <div class="scroll-chevron"></div>
+                        <div class="scroll-chevron"></div>
+                    </div>
                 </div>
             </div>
+            <!-- Fade overlay that reveals content behind -->
+            <div class="hero-end-fade" id="hero-end-fade"></div>
         </div>
     </section>
 
@@ -134,7 +138,7 @@
             <div class="section-header">
                 <span class="section-number mono-xs blur-fade">[01]</span>
                 <h2 class="section-title blur-fade">Current State</h2>
-                <p class="section-subtitle blur-fade">Where the industry stands — and where Trezor fits in</p>
+                <p class="section-subtitle blur-fade">Where the industry stands, and where Trezor fits in</p>
             </div>
 
             <div class="content-grid two-col">
@@ -173,8 +177,65 @@
 
             <div class="tipping-point blur-fade">
                 <h3 class="tipping-title">The Tipping Point <span class="mono-xs">2025–2026</span></h3>
-                <p>AI isn't just a new tool — like cloud computing before it, AI represents a <strong>paradigm shift</strong> that will completely redefine how we build products. Cloud didn't just add servers — it catalyzed cross-functional pods, continuous deployment, product-led growth. AI will do the same for team structure and decision-making.</p>
+                <p>AI isn't just a new tool. Like cloud computing before it, AI represents a <strong>paradigm shift</strong> that will completely redefine how we build products. Cloud didn't just add servers. It catalyzed cross-functional pods, continuous deployment, product-led growth. AI will do the same for team structure and decision-making.</p>
             </div>
+
+            <!-- Historical Evolution: Scroll-Driven -->
+            <div class="evo-section blur-fade" id="evo-section">
+                <div class="evo-header">
+                    <span class="mono-xs accent-color">55 years of the same trend</span>
+                    <h3>Teams keep getting smaller. And more powerful.</h3>
+                </div>
+
+                <div class="evo-experience">
+                    <!-- Sticky visual: year + people dots -->
+                    <div class="evo-visual">
+                        <div class="evo-vis-inner">
+                            <div class="evo-year-big" id="evo-year">1970</div>
+                            <div class="evo-people" id="evo-people"></div>
+                            <div class="evo-size-label" id="evo-size">20–100+ people</div>
+                            <div class="evo-tech-label mono-xs" id="evo-tech">Mainframes</div>
+                        </div>
+                    </div>
+
+                    <!-- Scrolling eras -->
+                    <div class="evo-eras">
+                        <div class="evo-era active" data-year="1970" data-people="22" data-size="20–100+ people" data-tech="Mainframes">
+                            <h4>Waterfall</h4>
+                            <p>Specialized departments hand off work sequentially through documentation gates. Requirements → Design → Code → Test. Upfront planning was rational when hardware cost millions.</p>
+                        </div>
+                        <div class="evo-era" data-year="1975" data-people="10" data-size="~10 people" data-tech="IBM System/360">
+                            <h4>Surgical Team</h4>
+                            <p>Brooks argues for small, sharp teams around a chief programmer. <em>"Adding manpower to a late project makes it later."</em> Communication overhead grows quadratically. Doubling the team more than doubles the coordination cost.</p>
+                        </div>
+                        <div class="evo-era" data-year="2001" data-people="7" data-size="5–9 people" data-tech="Internet, open source">
+                            <h4>Agile / Scrum</h4>
+                            <p>Cross-functional teams deliver working software in short iterations. 17 practitioners write the Agile Manifesto at Snowbird, Utah. Customer collaboration replaces contract negotiation.</p>
+                        </div>
+                        <div class="evo-era" data-year="2009" data-people="7" data-size="5–10 people" data-tech="Cloud (AWS), CI/CD">
+                            <h4>DevOps</h4>
+                            <p>"You build it, you run it." Development and operations merge into one team. 10+ deploys per day at Flickr. Infrastructure becomes code.</p>
+                        </div>
+                        <div class="evo-era" data-year="2012" data-people="7" data-size="6–8 people" data-tech="Microservices, API-first">
+                            <h4>Spotify Squads</h4>
+                            <p>Autonomous squads own features end-to-end. Tribes, chapters, guilds for cross-cutting alignment. The model everyone copied, including Spotify eventually moving on from it.</p>
+                        </div>
+                        <div class="evo-era" data-year="2017" data-people="5" data-size="4–8 people" data-tech="Product analytics, A/B testing">
+                            <h4>Empowered Product Teams</h4>
+                            <p>PM + Designer + Engineers solve problems, not build features. Accountable for outcomes, not output. Cagan's SVPG model becomes the gold standard for product organizations.</p>
+                        </div>
+                        <div class="evo-era" data-year="2024" data-people="3" data-size="2–5 people" data-tech="Copilot, LLMs, AI agents">
+                            <h4>AI-Augmented Teams</h4>
+                            <p>AI coding assistants dramatically increase scope per person. GitHub reports nearly half of new code written with Copilot among adopters. Team sizes start compressing as individual leverage skyrockets.</p>
+                        </div>
+                        <div class="evo-era evo-era--now" data-year="2026" data-people="3" data-size="? + hubs" data-tech="Keep scrolling to find out" data-hubs="true">
+                            <h4>What comes next?</h4>
+                            <p>The trend is clear: smaller teams, bigger scope, every decade. But AI doesn't just shrink teams. It changes <em>how they're structured entirely.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -232,7 +293,7 @@
                         <span class="research-author">2026 Predictions</span>
                     </div>
                     <h3>The AI Studio Model</h3>
-                    <p>PwC introduces the <strong>"AI Studio"</strong> — a centralized hub with reusable tech components, evaluation frameworks, a sandbox for testing, and deployment protocols.</p>
+                    <p>PwC introduces the <strong>"AI Studio"</strong>, a centralized hub with reusable tech components, evaluation frameworks, a sandbox for testing, and deployment protocols.</p>
                     <blockquote>
                         "The grassroots approach may generate impressive adoption numbers but seldom produces meaningful business outcomes."
                     </blockquote>
@@ -252,7 +313,7 @@
                     <h3>Everyone Builds Now</h3>
                     <p>Designers, marketers, and PMs can contribute directly to code through AI. Three essential skills: <strong>clear product intent</strong>, effective AI coaching, and quick problem-solving.</p>
                     <blockquote>
-                        "Deep understanding of software systems remains valuable — output quality depends on the taste of the person directing the AI."
+                        "Deep understanding of software systems remains valuable, but output quality depends on the taste of the person directing the AI."
                     </blockquote>
                     <div class="research-tags">
                         <span>Exposure hours</span>
@@ -290,7 +351,7 @@
                     <p>CEO aggressively promoted AI as a replacement: workforce dropped from <strong>5,500 to 3,400</strong>. An AI chatbot reportedly replaced 700 customer service agents.</p>
                     <p class="warning-text">Six months later: customer satisfaction dropped dramatically. Siemiatkowski admitted: <em>"We went too far."</em></p>
                     <div class="callout callout--warning">
-                        <p><strong>Lesson for Trezor:</strong> Change how people work with AI — augmentation, not substitution.</p>
+                        <p><strong>Lesson for Trezor:</strong> Change how people work with AI. Augmentation, not substitution.</p>
                     </div>
                 </div>
             </div>
@@ -430,6 +491,7 @@
                                 <div class="ex-node ex-node--team">Trade</div>
                                 <div class="ex-node ex-node--team">Earn</div>
                                 <div class="ex-node ex-node--team">Foundation</div>
+                                <div class="ex-node ex-node--team ex-node--more">+ more</div>
                             </div>
                         </div>
                     </div>
@@ -439,48 +501,48 @@
                     <div class="explainer-step" data-step="0">
                         <span class="mono-xs">The Problem</span>
                         <h3>Siloed knowledge, duplicated effort</h3>
-                        <p>Today, each domain team has its own PM, designer, and tech lead with engineers. <strong>Knowledge and patterns stay siloed</strong> — each team reinvents the wheel.</p>
-                        <p>Design systems exist, but they're passive libraries. Research is fragmented across teams. Copy is written ad hoc, per feature. There's no shared intelligence — when someone leaves, their knowledge walks out the door.</p>
+                        <p>Today, each domain team has its own PM, designer, and tech lead with engineers. <strong>Knowledge and patterns stay siloed</strong>. Each team reinvents the wheel.</p>
+                        <p>Design systems exist, but they're passive libraries. Research is fragmented across teams. Copy is written ad hoc, per feature. There's no shared intelligence, and when someone leaves, their knowledge walks out the door.</p>
                     </div>
                     <div class="explainer-step" data-step="1">
                         <span class="mono-xs">Core Hubs</span>
                         <h3>Three foundational hubs</h3>
                         <ul class="ex-step-list">
-                            <li><strong class="design-color">Design Hub</strong> — Without it, we can't guarantee consistent quality across teams. We can't allow everyone to use whatever they want, whenever they want. Enforces shared standards while enabling faster generation within guardrails.</li>
-                            <li><strong class="content-color">Content Hub</strong> — One communication style, everywhere. No more forgotten touchpoints — when something changes, FAQ, tooltips, and release notes update too. Standardization, not ad hoc copy.</li>
-                            <li><strong class="insights-color">Insights Hub</strong> — <em>Is this even worth doing?</em> Just because AI makes something easy doesn't mean we should do it. Validates ideas against real data and user needs. Every learning feeds back in.</li>
+                            <li><strong class="design-color">Design Hub</strong>: Without it, we can't guarantee consistent quality across teams. We can't allow everyone to use whatever they want, whenever they want. Enforces shared standards while enabling faster generation within guardrails.</li>
+                            <li><strong class="content-color">Content Hub</strong>: One communication style, everywhere. No more forgotten touchpoints. When something changes, FAQ, tooltips, and release notes update too. Standardization, not ad hoc copy.</li>
+                            <li><strong class="insights-color">Insights Hub</strong>: <em>Is this even worth doing?</em> Just because AI makes something easy doesn't mean we should do it. Validates ideas against real data and user needs. Every learning feeds back in.</li>
                         </ul>
                     </div>
                     <div class="explainer-step" data-step="2">
                         <span class="mono-xs">Specialized Hubs</span>
                         <h3>Three hubs for Trezor's reality</h3>
                         <ul class="ex-step-list">
-                            <li><strong class="security-color">Security &amp; Compliance Hub</strong> — Trezor builds a security product. One UX error can cost users money. This hub knows all security standards, regulations (MiCA, crypto legislation), threat models. Every feature is auto-audited before design even begins. <em>Mandatory checkpoint for everything.</em></li>
-                            <li><strong class="experiment-color">Experimentation Hub</strong> — Orchestrates A/B tests, feature flags, and experiments across all teams. Knows what's running, where overlaps are, when statistical significance is reached. Alerts when there's a clear winner — or when an experiment is hurting metrics. Results feed into Insights Hub.</li>
-                            <li><strong class="local-color">Localisation &amp; Education Hub</strong> — Trezor has global users and crypto is inherently education-heavy. Not just translation — cultural adaptation and contextual intelligence. A Japanese user needs different onboarding than a German one. Knows that in Brazil, self-custody interest is rising due to currency instability — adapts messaging accordingly.</li>
+                            <li><strong class="security-color">Security &amp; Compliance Hub</strong>: Trezor builds a security product. One UX error can cost users money. This hub knows all security standards, regulations (MiCA, crypto legislation), threat models. Every feature is auto-audited before design even begins. <em>Mandatory checkpoint for everything.</em></li>
+                            <li><strong class="experiment-color">Experimentation Hub</strong>: Orchestrates A/B tests, feature flags, and experiments across all teams. Knows what's running, where overlaps are, when statistical significance is reached. Alerts when there's a clear winner, or when an experiment is hurting metrics. Results feed into Insights Hub.</li>
+                            <li><strong class="local-color">Localisation &amp; Education Hub</strong>: Trezor has global users and crypto is inherently education-heavy. Not just translation, but cultural adaptation and contextual intelligence. A Japanese user needs different onboarding than a German one. Knows that in Brazil, self-custody interest is rising due to currency instability, so adapt messaging accordingly.</li>
                         </ul>
                     </div>
                     <div class="explainer-step" data-step="3">
                         <span class="mono-xs">The Orchestrator</span>
                         <h3>Queries first, builds second</h3>
-                        <p>The Orchestrator <strong>doesn't build from scratch — they query the hubs</strong>. Not all six hubs on every project. Security is a mandatory checkpoint for everything. Experimentation kicks in during testing. Localisation when scaling to new markets.</p>
+                        <p>The Orchestrator <strong>doesn't build from scratch. They query the hubs</strong>. Not all six hubs on every project. Security is a mandatory checkpoint for everything. Experimentation kicks in during testing. Localisation when scaling to new markets.</p>
                         <p>Each Orchestrator leads a smaller team (+ Tech Lead + 1–2 engineers) but has <strong>far greater scope and impact</strong> because the hubs eliminate the grunt work.</p>
                     </div>
                     <div class="explainer-step" data-step="4">
                         <span class="mono-xs">Ownership</span>
                         <h3>Each hub has a dedicated guardian</h3>
-                        <p>Hubs aren't self-running — each is <strong>owned and maintained by a domain expert</strong>:</p>
+                        <p>Hubs aren't self-running. Each is <strong>owned and maintained by a domain expert</strong>:</p>
                         <div class="ex-owners">
-                            <div class="ex-owner"><span class="design-color">Design</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Design System Designer</strong></div>
-                            <div class="ex-owner"><span class="content-color">Content</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Content Designer</strong></div>
-                            <div class="ex-owner"><span class="insights-color">Insights</span> <span class="ex-owner-arrow">&rarr;</span> <strong>User Researcher</strong></div>
-                            <div class="ex-owner"><span class="security-color">Security</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Security Lead</strong></div>
-                            <div class="ex-owner"><span class="experiment-color">Experimentation</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Growth / Data Lead</strong></div>
-                            <div class="ex-owner"><span class="local-color">Localisation</span> <span class="ex-owner-arrow">&rarr;</span> <strong>Localisation Lead</strong></div>
+                            <div class="ex-owner"><span class="ex-owner-dot" style="background:var(--hub-design)"></span><strong>Design System Lead + team</strong><span class="ex-owner-hub design-color">Design Hub</span></div>
+                            <div class="ex-owner"><span class="ex-owner-dot" style="background:var(--hub-content)"></span><strong>Content Lead + team</strong><span class="ex-owner-hub content-color">Content Hub</span></div>
+                            <div class="ex-owner"><span class="ex-owner-dot" style="background:var(--hub-insights)"></span><strong>Research Lead + team</strong><span class="ex-owner-hub insights-color">Insights Hub</span></div>
+                            <div class="ex-owner"><span class="ex-owner-dot" style="background:var(--hub-security)"></span><strong>Security Lead + team</strong><span class="ex-owner-hub security-color">Security Hub</span></div>
+                            <div class="ex-owner"><span class="ex-owner-dot" style="background:var(--hub-experiment)"></span><strong>Growth Lead + team</strong><span class="ex-owner-hub experiment-color">Experimentation</span></div>
+                            <div class="ex-owner"><span class="ex-owner-dot" style="background:var(--hub-local)"></span><strong>Localisation Lead + team</strong><span class="ex-owner-hub local-color">Localisation</span></div>
                         </div>
-                        <p>Domain teams don't disappear — they become smaller, faster, and more autonomous.</p>
+                        <p>Domain teams don't disappear. They become smaller, faster, and more autonomous. And because each team needs fewer people, we can have <strong>more teams covering more domains</strong> than we do today.</p>
                         <div class="callout" style="margin-top: 1rem">
-                            <p>Focus on what matters, not on what's easy.</p>
+                            <p>AI makes everything possible. Hubs make sure we only build what's validated.</p>
                         </div>
                     </div>
                 </div>
@@ -495,17 +557,17 @@
                     </div>
                     <div class="hub-why">
                         <span class="mono-xs">Why it exists</span>
-                        <p>Without centralized design governance, consistent look &amp; feel is impossible as teams scale. We cannot allow each team to use whatever they want — the hub guarantees quality and coherence across every product surface.</p>
+                        <p>Without centralized design governance, consistent look &amp; feel is impossible as teams scale. We cannot allow each team to use whatever they want. The hub guarantees quality and coherence across every product surface.</p>
                     </div>
                     <ul class="hub-layers">
-                        <li><strong>Base Rules</strong> — Design tokens (colors, type, spacing) readable by AI agents</li>
-                        <li><strong>Smart Components</strong> — Know when, where, and with what to be used. AI-enforced consistency</li>
-                        <li><strong>Generative Templates</strong> — AI generates layouts within defined parameters, not from scratch</li>
-                        <li><strong>Non-Deterministic Design</strong> — Guardrails for adaptive, AI-generated UI — how far it can flex, where the hard lines are</li>
+                        <li><strong>Base Rules</strong>: Design tokens (colors, type, spacing) readable by AI agents</li>
+                        <li><strong>Smart Components</strong>: Know when, where, and with what to be used. AI-enforced consistency</li>
+                        <li><strong>Generative Templates</strong>: AI generates layouts within defined parameters, not from scratch</li>
+                        <li><strong>Non-Deterministic Design</strong>: Guardrails for adaptive, AI-generated UI. Defines how far it can flex, where the hard lines are</li>
                     </ul>
                     <div class="hub-owner">
                         <span class="mono-xs">Owned by</span>
-                        <strong>Design System Designer</strong>
+                        <strong>Design System Lead + team</strong>
                     </div>
                 </div>
 
@@ -515,16 +577,16 @@
                     </div>
                     <div class="hub-why">
                         <span class="mono-xs">Why it exists</span>
-                        <p>One communication style, everywhere. When a flow changes, the hub flags every place that needs updating — FAQ, tooltips, release notes, help center. Nothing gets forgotten. Standardization across all channels and languages.</p>
+                        <p>One communication style, everywhere. When a flow changes, the hub flags every place that needs updating: FAQ, tooltips, release notes, help center. Nothing gets forgotten. Standardization across all channels and languages.</p>
                     </div>
                     <ul class="hub-layers">
-                        <li><strong>UI Communication</strong> — Onboarding copy, errors, success states, empty states, tooltips</li>
-                        <li><strong>Propagation Awareness</strong> — Knows all touchpoints that must update when something changes</li>
-                        <li><strong>Tone &amp; Standards</strong> — Unified voice, terminology, and writing rules across every channel</li>
+                        <li><strong>UI Communication</strong>: Onboarding copy, errors, success states, empty states, tooltips</li>
+                        <li><strong>Propagation Awareness</strong>: Knows all touchpoints that must update when something changes</li>
+                        <li><strong>Tone &amp; Standards</strong>: Unified voice, terminology, and writing rules across every channel</li>
                     </ul>
                     <div class="hub-owner">
                         <span class="mono-xs">Owned by</span>
-                        <strong>Content Designer</strong>
+                        <strong>Content Lead + team</strong>
                     </div>
                 </div>
 
@@ -537,14 +599,14 @@
                         <p>Just because AI makes something easy doesn't mean we should do it. The Orchestrator must validate whether an effort is worth pursuing <em>before</em> they start. Focus on what matters and know why. Every learning feeds back into the hub for the next team.</p>
                     </div>
                     <ul class="hub-layers">
-                        <li><strong>Pre-Validation</strong> — Is this idea grounded in real data and user needs? Should we even pursue it?</li>
-                        <li><strong>Data Synthesis</strong> — Connects qualitative (interviews, feedback) with quantitative (analytics, metrics)</li>
-                        <li><strong>Organizational Memory</strong> — No knowledge walks out the door when people leave</li>
-                        <li><strong>Feedback Loop</strong> — Test results and new learnings flow back in, available to every team</li>
+                        <li><strong>Pre-Validation</strong>: Is this idea grounded in real data and user needs? Should we even pursue it?</li>
+                        <li><strong>Data Synthesis</strong>: Connects qualitative (interviews, feedback) with quantitative (analytics, metrics)</li>
+                        <li><strong>Organizational Memory</strong>: No knowledge walks out the door when people leave</li>
+                        <li><strong>Feedback Loop</strong>: Test results and new learnings flow back in, available to every team</li>
                     </ul>
                     <div class="hub-owner">
                         <span class="mono-xs">Owned by</span>
-                        <strong>User Researcher</strong>
+                        <strong>Research Lead + team</strong>
                     </div>
                 </div>
             </div>
@@ -558,16 +620,16 @@
                         </div>
                         <div class="hub-why">
                             <span class="mono-xs">Why it exists</span>
-                            <p>Trezor builds a security product — security isn't nice-to-have, it's core. One UX error can cost users money. This hub knows all security standards, regulations (MiCA, crypto legislation), threat models and best practices.</p>
+                            <p>Trezor builds a security product. Security isn't nice-to-have, it's core. One UX error can cost users money. This hub knows all security standards, regulations (MiCA, crypto legislation), threat models and best practices.</p>
                         </div>
                         <ul class="hub-layers">
-                            <li><strong>Pre-Design Audit</strong> — "What are the security implications of biometric onboarding?" — answered before design starts</li>
-                            <li><strong>Auto-Compliance Check</strong> — Every new feature validated against security checklist and regulatory requirements</li>
-                            <li><strong>Threat Intelligence</strong> — Evolving crypto-specific threat models, updated continuously</li>
+                            <li><strong>Pre-Design Audit</strong>: "What are the security implications of biometric onboarding?" Answered before design starts</li>
+                            <li><strong>Auto-Compliance Check</strong>: Every new feature validated against security checklist and regulatory requirements</li>
+                            <li><strong>Threat Intelligence</strong>: Evolving crypto-specific threat models, updated continuously</li>
                         </ul>
                         <div class="hub-owner">
                             <span class="mono-xs">Owned by</span>
-                            <strong>Security Lead</strong>
+                            <strong>Security Lead + team</strong>
                         </div>
                     </div>
 
@@ -580,13 +642,13 @@
                             <p>What growth teams do manually today, orchestrated across all teams. Knows what experiments are running, where they overlap, and when statistical significance is reached. Results automatically enrich the Insights Hub.</p>
                         </div>
                         <ul class="hub-layers">
-                            <li><strong>Experiment Orchestration</strong> — A/B tests, feature flags, multivariate tests across teams</li>
-                            <li><strong>Collision Detection</strong> — Flags overlapping experiments that could contaminate results</li>
-                            <li><strong>Auto-Alerting</strong> — Notifies when there's a clear winner or when metrics are being harmed</li>
+                            <li><strong>Experiment Orchestration</strong>: A/B tests, feature flags, multivariate tests across teams</li>
+                            <li><strong>Collision Detection</strong>: Flags overlapping experiments that could contaminate results</li>
+                            <li><strong>Auto-Alerting</strong>: Notifies when there's a clear winner or when metrics are being harmed</li>
                         </ul>
                         <div class="hub-owner">
                             <span class="mono-xs">Owned by</span>
-                            <strong>Growth / Data Lead</strong>
+                            <strong>Growth Lead + team</strong>
                         </div>
                     </div>
 
@@ -596,16 +658,16 @@
                         </div>
                         <div class="hub-why">
                             <span class="mono-xs">Why it exists</span>
-                            <p>Global users, inherently education-heavy product. Not just translation — cultural adaptation and contextual intelligence. A Japanese user needs different onboarding than a German one, beyond just language.</p>
+                            <p>Global users, inherently education-heavy product. Not just translation, but cultural adaptation and contextual intelligence. A Japanese user needs different onboarding than a German one, beyond just language.</p>
                         </div>
                         <ul class="hub-layers">
-                            <li><strong>Cultural Adaptation</strong> — Market-specific messaging, education depth, and UX adjustments</li>
-                            <li><strong>Market Intelligence</strong> — "In Brazil, self-custody interest is rising due to currency instability — adapt messaging"</li>
-                            <li><strong>Education Content</strong> — Knowledge base, help center, and onboarding tailored per market maturity</li>
+                            <li><strong>Cultural Adaptation</strong>: Market-specific messaging, education depth, and UX adjustments</li>
+                            <li><strong>Market Intelligence</strong>: "In Brazil, self-custody interest is rising due to currency instability. Adapt messaging for this market."</li>
+                            <li><strong>Education Content</strong>: Knowledge base, help center, and onboarding tailored per market maturity</li>
                         </ul>
                         <div class="hub-owner">
                             <span class="mono-xs">Owned by</span>
-                            <strong>Localisation Lead</strong>
+                            <strong>Localisation Lead + team</strong>
                         </div>
                     </div>
                 </div>
@@ -616,7 +678,7 @@
                     <div class="integrated-items">
                         <div class="integrated-item">
                             <strong>Code / Architecture Patterns</strong>
-                            <p>Could be a standalone hub, but makes more sense as an extension of Design Hub across the full stack — UI components + API patterns + coding standards readable by AI.</p>
+                            <p>Could be a standalone hub, but makes more sense as an extension of Design Hub across the full stack: UI components + API patterns + coding standards readable by AI.</p>
                         </div>
                         <div class="integrated-item">
                             <strong>Brand Hub</strong>
@@ -701,13 +763,22 @@
                             <line x1="700" y1="180" x2="449" y2="288" class="arch-line arch-line--security"/>
                         </g>
 
-                        <!-- ══════ ANIMATED PARTICLES ══════ -->
+                        <!-- ══════ ANIMATED PARTICLES: Team → Hub (queries) ══════ -->
                         <circle r="3" fill="var(--accent)" filter="url(#glowG)" opacity="0.8"><animateMotion dur="2.8s" repeatCount="indefinite" path="M440,58 L440,178 L322,290"/></circle>
                         <circle r="3" fill="var(--hub-security)" filter="url(#glowR)" opacity="0.7"><animateMotion dur="3.2s" repeatCount="indefinite" path="M180,58 L180,178 L449,290" begin="0.6s"/></circle>
                         <circle r="3" fill="var(--accent)" filter="url(#glowG)" opacity="0.8"><animateMotion dur="3.5s" repeatCount="indefinite" path="M700,58 L700,178 L195,290" begin="1.2s"/></circle>
                         <circle r="2.5" fill="var(--hub-security)" filter="url(#glowR)" opacity="0.6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M570,58 L570,178 L449,290" begin="2s"/></circle>
                         <circle r="3" fill="var(--accent)" filter="url(#glowG)" opacity="0.7"><animateMotion dur="3s" repeatCount="indefinite" path="M310,58 L310,178 L322,290" begin="0.3s"/></circle>
                         <circle r="2.5" fill="var(--hub-experiment)" opacity="0.6"><animateMotion dur="3.4s" repeatCount="indefinite" path="M440,58 L440,178 L576,290" begin="1.8s"/></circle>
+
+                        <!-- ══════ ANIMATED PARTICLES: Hub → Team (feedback) ══════ -->
+                        <circle r="2.5" fill="var(--hub-insights)" opacity="0.5"><animateMotion dur="3s" repeatCount="indefinite" path="M322,290 L440,178 L440,58" begin="1s"/></circle>
+                        <circle r="2.5" fill="var(--hub-design)" opacity="0.5"><animateMotion dur="3.2s" repeatCount="indefinite" path="M68,290 L180,178 L180,58" begin="2.2s"/></circle>
+                        <circle r="2" fill="var(--hub-content)" opacity="0.45"><animateMotion dur="3.4s" repeatCount="indefinite" path="M195,290 L570,178 L570,58" begin="3s"/></circle>
+
+                        <!-- ══════ ANIMATED PARTICLES: Hub → Hub (cross-hub) ══════ -->
+                        <circle r="2" fill="var(--hub-experiment)" opacity="0.4"><animateMotion dur="2.5s" repeatCount="indefinite" path="M576,310 L322,310" begin="0.8s"/></circle>
+                        <circle r="2" fill="var(--hub-design)" opacity="0.4"><animateMotion dur="2.8s" repeatCount="indefinite" path="M68,310 L195,310" begin="1.6s"/></circle>
 
                         <!-- ══════ DOMAIN TEAM NODES ══════ -->
                         <g class="arch-g-team" data-team="growth" cursor="pointer">
@@ -730,6 +801,7 @@
                             <rect x="636" y="36" width="128" height="34" rx="8" class="arch-rect arch-rect--team"/>
                             <text x="700" y="58" class="arch-text arch-text--team">Foundation</text>
                         </g>
+                        <text x="775" y="58" class="arch-text arch-text--team" opacity="0.4" font-style="italic" font-size="10">+more</text>
 
                         <!-- ══════ ORCHESTRATOR NODES ══════ -->
                         <g class="arch-g-orch" data-team="growth">
@@ -819,7 +891,7 @@
 
             <div class="orchestrator-layout">
                 <div class="orchestrator-description blur-fade">
-                    <p class="lead-text">The Orchestrator combines PM, designer, and technical leader. <strong>Not a solopreneur</strong> — a leader of a smaller team who can:</p>
+                    <p class="lead-text">The Orchestrator combines PM, designer, and technical leader. <strong>Not a solopreneur</strong>, but a leader of a smaller team who can:</p>
 
                     <div class="competency-list">
                         <div class="competency blur-fade" data-delay="0.1">
@@ -855,6 +927,86 @@
                         <cite>— Scott Belsky &amp; Guillermo Rauch</cite>
                     </blockquote>
                     <p>When looking for Orchestrators, prioritize <strong>product sense and design taste</strong>, not the strongest technical profiles.</p>
+                </div>
+            </div>
+
+            <!-- Industry evidence: emerging roles -->
+            <div class="industry-evidence blur-fade">
+                <div class="industry-header">
+                    <span class="mono-xs accent-color">It's already happening</span>
+                    <h3>They call it different names. It's the same convergence.</h3>
+                    <p>The Orchestrator isn't a theoretical construct. Companies are hiring for this role right now. They just don't agree on what to call it yet.</p>
+                </div>
+
+                <!-- Role mapping across companies -->
+                <div class="role-map blur-fade">
+                    <div class="role-map-row role-map-header">
+                        <span>Company</span>
+                        <span>They call it</span>
+                        <span>What it means</span>
+                    </div>
+                    <div class="role-map-row"><span class="role-map-company">Vercel</span><span class="role-map-title">Design Engineer</span><span>Design + code as one fluid skill. $200k+ salaries.</span></div>
+                    <div class="role-map-row"><span class="role-map-company">Linear</span><span class="role-map-title">Design Engineer</span><span>Prototype in Figma, ship in code, own the UI layer.</span></div>
+                    <div class="role-map-row"><span class="role-map-company">Stripe</span><span class="role-map-title">Design Engineer</span><span>Industry-leading design for Stripe's front door surfaces.</span></div>
+                    <div class="role-map-row"><span class="role-map-company">Raycast</span><span class="role-map-title">Design Engineer</span><span>Design and engineering as one role, not two.</span></div>
+                    <div class="role-map-row"><span class="role-map-company">Lovable</span><span class="role-map-title">Product Engineer</span><span>Full-stack builder. Product thinking + engineering in one person.</span></div>
+                    <div class="role-map-row"><span class="role-map-company">Shopify</span><span class="role-map-title">AI-first culture</span><span>"Prove AI can't do it before hiring a human." AI fluency mandatory.</span></div>
+                    <div class="role-map-row"><span class="role-map-company">OpenAI</span><span class="role-map-title">Product Designer</span><span>Designing AI-native experiences for ChatGPT and platform tools.</span></div>
+                    <div class="role-map-row"><span class="role-map-company">SF Standard</span><span class="role-map-title">"Builder"</span><span>"'Engineer' is so 2025. In AI land, everyone's a builder now."</span></div>
+                </div>
+
+                <!-- Detail cards -->
+                <div class="industry-grid">
+                    <details class="industry-card">
+                        <summary>
+                            <span class="industry-company">Design Engineer</span>
+                            <span class="industry-role">The role that's everywhere</span>
+                        </summary>
+                        <div class="industry-detail">
+                            <p>Vercel, Linear, Stripe, Raycast, and Cursor all actively hire for this role. Design engineers bridge design and frontend engineering. They can design and ship code as one fluid workflow.</p>
+                            <p>Rauno Freiberg (Staff Design Engineer, Vercel): "A designer whose medium is code." Flo Guo went from non-coder to design engineer at Vercel in months, powered by v0.</p>
+                            <p class="industry-insight"><strong>This is the Orchestrator's design + technical literacy.</strong> But Design Engineers typically don't own product strategy. Our Orchestrator adds that layer.</p>
+                        </div>
+                    </details>
+
+                    <details class="industry-card">
+                        <summary>
+                            <span class="industry-company">Lovable</span>
+                            <span class="industry-role">Product Engineer</span>
+                        </summary>
+                        <div class="industry-detail">
+                            <p>Lovable ($6.6B valuation, $200M ARR) hires "Product Engineers" who combine product thinking with full-stack engineering. A small, talent-dense team where builders own the entire product lifecycle.</p>
+                            <p class="industry-insight"><strong>Closest to the Orchestrator's full-stack ownership.</strong> But without hub infrastructure, each product engineer reinvents shared problems alone.</p>
+                        </div>
+                    </details>
+
+                    <details class="industry-card">
+                        <summary>
+                            <span class="industry-company">Shopify</span>
+                            <span class="industry-role">AI as baseline expectation</span>
+                        </summary>
+                        <div class="industry-detail">
+                            <p>CEO Lütke in his leaked memo: "Using AI effectively is now a fundamental expectation of everyone at Shopify." Teams must prove AI can't do a job before requesting headcount. AI usage is part of performance reviews.</p>
+                            <p>"There are 10,000 good solutions. What you showed me is the first one that worked. Why did you stop there?"</p>
+                            <p class="industry-insight"><strong>Closest to our overall philosophy.</strong> But Shopify mandates AI fluency without providing shared hub infrastructure. Each team figures it out alone.</p>
+                        </div>
+                    </details>
+
+                    <details class="industry-card">
+                        <summary>
+                            <span class="industry-company">Industry shift</span>
+                            <span class="industry-role">From "Engineer" to "Builder"</span>
+                        </summary>
+                        <div class="industry-detail">
+                            <p>SF Standard (March 2026): "'Engineer' is so 2025. In AI land, everyone's a builder now." Engineers increasingly give agents instructions in plain English and review what machines produce.</p>
+                            <p>Even at Walmart, "agent builder" roles are filled by both technical and nontechnical employees. The "builder" title signals someone who can spot a problem, decide how to solve it, and use AI to bring the solution to life.</p>
+                            <p class="industry-insight"><strong>Without hubs, a "builder" is just an overloaded generalist.</strong> With hubs, the Orchestrator has intelligent infrastructure behind every decision. That's the difference between doing everything and doing everything well.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="industry-summary blur-fade">
+                    <p><strong>Everyone's converging on the same role. No one has the infrastructure.</strong> The Orchestrator is unique because it combines the emerging role (builder/design engineer/product engineer) with hub infrastructure and dedicated hub leads. That's what turns a talented generalist into a force multiplier.</p>
                 </div>
             </div>
         </div>
@@ -956,7 +1108,7 @@
                             <div class="sim2-checks">
                                 <div class="sim2-check sim2-check--pass"><span>&#10003;</span> MiCA compliance verified</div>
                                 <div class="sim2-check sim2-check--pass"><span>&#10003;</span> Seed phrase flow meets security standards</div>
-                                <div class="sim2-check sim2-check--pass"><span>&#10003;</span> Biometric auth — no key material exposed</div>
+                                <div class="sim2-check sim2-check--pass"><span>&#10003;</span> Biometric auth: no key material exposed</div>
                                 <div class="sim2-check sim2-check--warn"><span>&#9888;</span> Add clipboard access warning on mobile</div>
                             </div>
                             <div class="sim2-verdict">Approved with 1 condition</div>
@@ -1006,12 +1158,12 @@
 
                         <!-- Content: Copy blocks -->
                         <div class="sim2-panel" data-panel="content">
-                            <div class="sim2-ptitle content-color">Copy Generated — 14 strings</div>
+                            <div class="sim2-ptitle content-color">Copy Generated: 14 strings</div>
                             <div class="sim2-copies">
                                 <div class="sim2-copy"><span class="sim2-copy-label">Welcome</span><p>"Your keys. Your crypto. Let's get you set up."</p></div>
-                                <div class="sim2-copy"><span class="sim2-copy-label">Seed phrase intro</span><p>"These 12 words are the only way to recover your wallet. Write them down — we can't do it for you."</p></div>
+                                <div class="sim2-copy"><span class="sim2-copy-label">Seed phrase intro</span><p>"These 12 words are the only way to recover your wallet. Write them down. We can't do it for you."</p></div>
                                 <div class="sim2-copy"><span class="sim2-copy-label">Success</span><p>"You're all set. Your Trezor is ready to protect your assets."</p></div>
-                                <div class="sim2-copy"><span class="sim2-copy-label">Error</span><p>"Something didn't work. Don't worry — your funds are safe. Let's try again."</p></div>
+                                <div class="sim2-copy"><span class="sim2-copy-label">Error</span><p>"Something didn't work. Don't worry, your funds are safe. Let's try again."</p></div>
                             </div>
                             <div class="sim2-copy-badge">2 FAQ articles flagged for update</div>
                         </div>
@@ -1025,7 +1177,7 @@
                                 <div class="sim2-metric"><span class="sim2-metric-num">1</span><span>security condition</span></div>
                                 <div class="sim2-metric"><span class="sim2-metric-num accent-color">&#10003;</span><span>knowledge captured</span></div>
                             </div>
-                            <p class="sim2-summary-note">All results fed back into Insights Hub — available to every team for the next project.</p>
+                            <p class="sim2-summary-note">All results fed back into Insights Hub. Available to every team for the next project.</p>
                         </div>
                     </div>
                 </div>
@@ -1059,7 +1211,7 @@
             <div class="section-header">
                 <span class="section-number mono-xs blur-fade">[06]</span>
                 <h2 class="section-title blur-fade">Implementation Roadmap</h2>
-                <p class="section-subtitle blur-fade">A phased approach — gradual, measured, reversible</p>
+                <p class="section-subtitle blur-fade">A phased approach: gradual, measured, reversible</p>
             </div>
 
             <div class="timeline">
@@ -1070,10 +1222,10 @@
                         <span class="phase-period mono-xs">Q2 – Q3 2026</span>
                         <h3>Phase 1: Foundations</h3>
                         <ul>
-                            <li><strong>Audit current workflows</strong> — Map where teams spend time, find AI-suitable tasks</li>
-                            <li><strong>Build the foundational Design Hub</strong> — AI-readable format (MCP, metadata)</li>
-                            <li><strong>Pilot the Insights Hub</strong> — Connect feedback sources into a single system</li>
-                            <li><strong>Upskill the team</strong> — Prompt engineering, AI prototyping, AI research</li>
+                            <li><strong>Audit current workflows</strong>: Map where teams spend time, find AI-suitable tasks</li>
+                            <li><strong>Build the foundational Design Hub</strong>: AI-readable format (MCP, metadata)</li>
+                            <li><strong>Pilot the Insights Hub</strong>: Connect feedback sources into a single system</li>
+                            <li><strong>Upskill the team</strong>: Prompt engineering, AI prototyping, AI research</li>
                         </ul>
                     </div>
                 </div>
@@ -1084,9 +1236,9 @@
                         <h3>Phase 2: Pilot Team</h3>
                         <ul>
                             <li><strong>Select one domain team</strong> (e.g., Growth) for the pilot Orchestrator model</li>
-                            <li><strong>Test hub-based workflow end-to-end</strong> — From insight to delivery</li>
-                            <li><strong>Launch Content Hub</strong> — Tone of voice + AI copy with human validation</li>
-                            <li><strong>Measure</strong> — Cycle speed, output quality, team satisfaction</li>
+                            <li><strong>Test hub-based workflow end-to-end</strong>: From insight to delivery</li>
+                            <li><strong>Launch Content Hub</strong>: Tone of voice + AI copy with human validation</li>
+                            <li><strong>Measure</strong>: Cycle speed, output quality, team satisfaction</li>
                         </ul>
                     </div>
                 </div>
@@ -1098,8 +1250,8 @@
                         <ul>
                             <li><strong>Extend the Orchestrator model</strong> to additional teams</li>
                             <li><strong>Connect hubs</strong> into an integrated orchestration layer</li>
-                            <li><strong>Add predictive capabilities</strong> — Predict needs and breaking changes</li>
-                            <li><strong>Increase team count</strong> — Smaller but more, hubs eliminate duplication</li>
+                            <li><strong>Add predictive capabilities</strong>: Predict needs and breaking changes</li>
+                            <li><strong>Increase team count</strong>: Smaller but more, hubs eliminate duplication</li>
                         </ul>
                     </div>
                 </div>
@@ -1156,18 +1308,18 @@
         <div class="container">
             <span class="section-number mono-xs blur-fade">[Sources]</span>
             <div class="sources-list blur-fade">
-                <div class="source-item"><strong>SVPG</strong> — Marty Cagan, 2025</div>
-                <div class="source-item"><strong>Reforge</strong> — Brian Balfour, 2025–2026</div>
-                <div class="source-item"><strong>PwC</strong> — 2026 AI Predictions</div>
-                <div class="source-item"><strong>Gartner</strong> — AI Agents 2026</div>
-                <div class="source-item"><strong>IBM Think</strong> — 2026 Trends</div>
-                <div class="source-item"><strong>Insight Partners</strong> — AI Adoption 2026</div>
-                <div class="source-item"><strong>IMD</strong> — AI Trends 2026</div>
-                <div class="source-item"><strong>CIO.com</strong> — Composite Squads</div>
-                <div class="source-item"><strong>Klarna</strong> — Case Study 2025</div>
-                <div class="source-item"><strong>Vercel</strong> — Guillermo Rauch, 2025</div>
-                <div class="source-item"><strong>Microsoft Design</strong> — AI Era DS, 2025</div>
-                <div class="source-item"><strong>Daniel Valčík</strong> — "Designing Tomorrow", 2025</div>
+                <div class="source-item"><strong>SVPG</strong> Marty Cagan, 2025</div>
+                <div class="source-item"><strong>Reforge</strong> Brian Balfour, 2025–2026</div>
+                <div class="source-item"><strong>PwC</strong> 2026 AI Predictions</div>
+                <div class="source-item"><strong>Gartner</strong> AI Agents 2026</div>
+                <div class="source-item"><strong>IBM Think</strong> 2026 Trends</div>
+                <div class="source-item"><strong>Insight Partners</strong> AI Adoption 2026</div>
+                <div class="source-item"><strong>IMD</strong> AI Trends 2026</div>
+                <div class="source-item"><strong>CIO.com</strong> Composite Squads</div>
+                <div class="source-item"><strong>Klarna</strong> Case Study 2025</div>
+                <div class="source-item"><strong>Vercel</strong> Guillermo Rauch, 2025</div>
+                <div class="source-item"><strong>Microsoft Design</strong> AI Era DS, 2025</div>
+                <div class="source-item"><strong>Daniel Valčík</strong> "Designing Tomorrow", 2025</div>
             </div>
         </div>
     </section>
