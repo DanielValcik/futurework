@@ -14,6 +14,50 @@
 </head>
 <body>
 
+    <!-- 90s Easter Egg (hidden behind the main page) -->
+    <div class="retro-90s" id="retro-90s">
+        <div class="retro-stars"></div>
+        <div class="retro-content">
+            <marquee behavior="alternate" scrollamount="3" class="retro-marquee-top">★ ★ ★ Welcome to the INFORMATION SUPERHIGHWAY ★ ★ ★</marquee>
+            <div class="retro-center">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="retro-under-construction" alt="">
+                <h1 class="retro-title">
+                    <span class="retro-letter" style="color:#ff0000">B</span><span class="retro-letter" style="color:#ff8800">A</span><span class="retro-letter" style="color:#ffff00">C</span><span class="retro-letter" style="color:#00ff00">K</span>
+                    <br>
+                    <span class="retro-letter" style="color:#00ffff">T</span><span class="retro-letter" style="color:#0088ff">O</span>
+                    <br>
+                    <span class="retro-letter" style="color:#8800ff">T</span><span class="retro-letter" style="color:#ff00ff">H</span><span class="retro-letter" style="color:#ff0088">E</span>
+                    <br>
+                    <span class="retro-blink">90's</span>
+                </h1>
+                <p class="retro-subtext">You've reached the end of the Internet.</p>
+                <div class="retro-hit-counter">
+                    <span class="retro-counter-label">You are visitor number:</span>
+                    <span class="retro-counter-digits">
+                        <span class="retro-digit">0</span><span class="retro-digit">0</span><span class="retro-digit">1</span><span class="retro-digit">3</span><span class="retro-digit">3</span><span class="retro-digit">7</span>
+                    </span>
+                </div>
+                <div class="retro-guestbook">
+                    <a href="#" class="retro-link" onclick="return false">&#128214; Sign my Guestbook!</a>
+                    <span class="retro-separator">|</span>
+                    <a href="#" class="retro-link" onclick="return false">&#128231; Email me!</a>
+                    <span class="retro-separator">|</span>
+                    <a href="#" class="retro-link" onclick="return false">&#127760; Cool Links</a>
+                </div>
+                <marquee scrollamount="2" class="retro-marquee-bottom">This page is best viewed in Netscape Navigator 3.0 at 800x600 resolution &nbsp;&nbsp;&nbsp; *** &nbsp;&nbsp;&nbsp; Last updated: March 1997 &nbsp;&nbsp;&nbsp; *** &nbsp;&nbsp;&nbsp; Made with Notepad</marquee>
+            </div>
+            <div class="retro-badges">
+                <div class="retro-badge">Netscape<br>NOW!</div>
+                <div class="retro-badge">Best viewed<br>800x600</div>
+                <div class="retro-badge">HTML<br>3.2</div>
+                <div class="retro-badge">GeoCities<br>Member</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main page content (acts as curtain over 90s section) -->
+    <div id="main-curtain">
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="preloader-content">
@@ -877,6 +921,52 @@
                 </div>
             </div>
 
+            <!-- Strategic Vision Layer -->
+            <div class="vision-layer blur-fade">
+                <div class="vision-layer-header">
+                    <span class="mono-xs accent-color">The layer above everything</span>
+                    <h3>When execution is fast, direction becomes everything</h3>
+                </div>
+
+                <div class="vision-layer-body">
+                    <div class="vision-layer-text">
+                        <p>In a world where more teams can execute faster than ever, the cost of going in the wrong direction multiplies. Every team shipping in parallel means a bad strategic bet burns resources across the entire organization, not just one squad.</p>
+                        <p><strong>Product and company vision becomes the highest-leverage activity.</strong> It's not just a document in a wiki. It's an active input that flows into every hub and shapes every team's decisions:</p>
+                        <ul class="vision-flow-list">
+                            <li><strong>Design Hub</strong> receives brand direction and product principles</li>
+                            <li><strong>Content Hub</strong> receives messaging strategy and positioning</li>
+                            <li><strong>Insights Hub</strong> receives hypotheses to validate and questions to answer</li>
+                            <li><strong>Security Hub</strong> receives risk appetite and compliance priorities</li>
+                            <li><strong>Experimentation Hub</strong> receives strategic bets to test</li>
+                            <li><strong>Localisation Hub</strong> receives market expansion priorities</li>
+                        </ul>
+                    </div>
+
+                    <div class="vision-layer-card">
+                        <div class="vision-layer-card-header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                            <h4>The feedback loop</h4>
+                        </div>
+                        <p>Vision isn't static. Insights from the Experimentation Hub and Insights Hub flow back up. Experiment results might reveal an unexpected market opportunity. User research might invalidate an assumption. The C-level updates the vision, and the updated direction propagates through all hubs immediately.</p>
+                        <div class="vision-loop">
+                            <span class="vision-loop-item">C-Level Vision</span>
+                            <span class="vision-loop-arrow">&darr;</span>
+                            <span class="vision-loop-item">Hubs + Teams</span>
+                            <span class="vision-loop-arrow">&darr;</span>
+                            <span class="vision-loop-item">Experiments + Research</span>
+                            <span class="vision-loop-arrow">&darr;</span>
+                            <span class="vision-loop-item">New data + Opportunities</span>
+                            <span class="vision-loop-arrow">&uarr;</span>
+                            <span class="vision-loop-item vision-loop-item--accent">Vision updated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vision-layer-owner">
+                    <strong>Owned by C-level.</strong> The strategic vision is the input that makes all hubs coherent. Without it, six hubs and ten teams are just fast execution in random directions.
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1280,6 +1370,11 @@
             <span class="mono-xs">Trezor · Product Design</span>
         </div>
     </footer>
+
+    </div><!-- /main-curtain -->
+
+    <!-- Extra scroll space for the curtain reveal -->
+    <div class="retro-scroll-spacer" id="retro-scroll-spacer"></div>
 
     <script src="js/main.js"></script>
 </body>

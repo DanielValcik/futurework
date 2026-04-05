@@ -305,13 +305,8 @@
             navbar.classList.remove('scrolled');
         }
 
-        // Scroll indicator: fades out early and quickly
-        if (scrollIndicator) {
-            const indProgress = Math.min(1, scrollY / (winHeight * 0.15));
-            scrollIndicator.style.opacity = 1 - indProgress;
-            scrollIndicator.style.transform = `translateY(${indProgress * 20}px)`;
-            scrollIndicator.style.filter = `blur(${indProgress * 6}px)`;
-        }
+        // Scroll indicator: follows the same fade/blur as hero content
+        // (handled below together with heroContent)
 
         // Hero scroll-out + Stats scroll-in (connected transition)
         const heroContent = document.getElementById('hero-content');
@@ -325,6 +320,14 @@
             heroContent.style.transform = `translateY(${progress * -30}px) scale(${1 + progress * 0.1})`;
             heroContent.style.filter = `blur(${progress * 14}px)`;
             heroContent.style.opacity = 1 - progress;
+
+            // Scroll indicator: same blur + fade as hero text
+            if (scrollIndicator && progress > 0) {
+                scrollIndicator.style.animation = 'none';
+                scrollIndicator.style.filter = `blur(${progress * 14}px)`;
+                scrollIndicator.style.opacity = 1 - progress;
+                scrollIndicator.style.visibility = progress >= 1 ? 'hidden' : 'visible';
+            }
 
             // Stats: start small + invisible (far away), arrive to normal as hero fades
             const statsProgress = Math.max(0, Math.min(1, (progress - 0.3) / 0.7)); // starts at 30% of hero fade
@@ -727,5 +730,29 @@
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // ─── 90s Easter Egg (curtain reveal) ──────────────────
+    const mainCurtain = document.getElementById('main-curtain');
+    const retro90s = document.getElementById('retro-90s');
+    const retroSpacer = document.getElementById('retro-scroll-spacer');
+
+    if (mainCurtain && retro90s && retroSpacer) {
+        const onScrollRetro = () => {
+            const spacerRect = retroSpacer.getBoundingClientRect();
+            const revealProgress = Math.max(0, Math.min(1, 1 - spacerRect.top / window.innerHeight));
+
+            if (revealProgress > 0) {
+                const lift = revealProgress * window.innerHeight;
+                mainCurtain.style.transform = `translateY(-${lift}px)`;
+                mainCurtain.style.boxShadow = `0 ${20 - revealProgress * 20}px ${60 - revealProgress * 40}px rgba(0,0,0,${0.5 - revealProgress * 0.5})`;
+                retro90s.classList.add('visible');
+            } else {
+                mainCurtain.style.transform = '';
+                mainCurtain.style.boxShadow = '';
+                retro90s.classList.remove('visible');
+            }
+        };
+        window.addEventListener('scroll', onScrollRetro, { passive: true });
+    }
 
 })();
