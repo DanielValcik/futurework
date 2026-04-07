@@ -613,6 +613,7 @@
                         <span class="mono-xs">Owned by</span>
                         <strong>Design System Lead + team</strong>
                     </div>
+                    <a href="design-hub.html" class="hub-explore-link mono-xs">Explore Design Hub structure &rarr;</a>
                 </div>
 
                 <div class="hub-detail blur-fade" data-delay="0.2">
@@ -731,6 +732,32 @@
                         <div class="integrated-item">
                             <strong>Data Hub</strong>
                             <p>Analytical infrastructure, not a standalone hub for Orchestrators. The Insights Hub consumes data infrastructure under the hood.</p>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- ═══ Context & Retrieval ═══ -->
+                <div class="retrieval-note blur-fade">
+                    <div class="retrieval-header">
+                        <span class="mono-xs">Technical consideration</span>
+                        <h4>How agents access hub knowledge reliably</h4>
+                    </div>
+                    <p>Hubs are only as useful as the AI's ability to retrieve the right information without hallucinating. Research shows that 80% of retrieval failures come from how data is structured, not from the AI model itself. Our approach combines three layers:</p>
+                    <div class="retrieval-layers">
+                        <div class="retrieval-layer">
+                            <strong>Structured retrieval (RAG)</strong>
+                            <p>Hybrid search combining semantic understanding with keyword precision. Cross-encoder re-ranking filters top candidates before sending to the model.</p>
+                            <span class="retrieval-tech mono-xs">Gemini Embedding 001 · Voyage-3-large · Qdrant · Pinecone · Cohere Rerank 4</span>
+                        </div>
+                        <div class="retrieval-layer">
+                            <strong>Cross-hub reasoning (GraphRAG)</strong>
+                            <p>A lightweight knowledge graph connecting entities across hubs, allowing agents to trace how a design token relates to a security requirement and a localization rule.</p>
+                            <span class="retrieval-tech mono-xs">Microsoft LazyGraphRAG · Mem0 (graph mode)</span>
+                        </div>
+                        <div class="retrieval-layer">
+                            <strong>Hub-as-API (MCP)</strong>
+                            <p>Each hub exposes its data via Model Context Protocol. Agents connect only to the hubs they need, keeping context focused and reducing hallucination risk by 70–90%.</p>
+                            <span class="retrieval-tech mono-xs">Anthropic MCP · Claude + memory · RAGAS evaluation framework</span>
                         </div>
                     </div>
                 </div>
@@ -909,13 +936,13 @@
                         </g>
 
                         <!-- ══════ LEGEND ══════ -->
-                        <g class="arch-legend-group" transform="translate(400, 405)" text-anchor="middle">
-                            <line x1="-190" y1="0" x2="-165" y2="0" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
-                            <text x="-130" y="3" class="arch-text-legend">Queries hub</text>
-                            <line x1="-60" y1="0" x2="-35" y2="0" stroke="var(--hub-security)" stroke-width="1.5" opacity="0.6"/>
-                            <text x="18" y="3" class="arch-text-legend">Mandatory</text>
-                            <line x1="70" y1="0" x2="95" y2="0" stroke="var(--gray-7)" stroke-width="1" opacity="0.4" stroke-dasharray="3 3"/>
-                            <text x="140" y="3" class="arch-text-legend">Cross-hub</text>
+                        <g class="arch-legend-group" transform="translate(400, 405)" text-anchor="start">
+                            <line x1="-200" y1="0" x2="-175" y2="0" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+                            <text x="-170" y="3" class="arch-text-legend">Queries hub</text>
+                            <line x1="-70" y1="0" x2="-45" y2="0" stroke="var(--hub-security)" stroke-width="1.5" opacity="0.6"/>
+                            <text x="-40" y="3" class="arch-text-legend">Mandatory</text>
+                            <line x1="60" y1="0" x2="85" y2="0" stroke="var(--gray-7)" stroke-width="1" opacity="0.4" stroke-dasharray="3 3"/>
+                            <text x="90" y="3" class="arch-text-legend">Cross-hub</text>
                         </g>
                     </svg>
                 </div>
@@ -1045,6 +1072,7 @@
                     <div class="role-map-row"><span class="role-map-company">Timedrift Collective</span><span class="role-map-title">Game Developer / Vibe Coder</span><span>AI writes ~90-95% of the code. Human drives architecture and creative direction.</span></div>
                     <div class="role-map-row"><span class="role-map-company">OakNorth</span><span class="role-map-title">AI-Native Engineering Team</span><span>Entire team structured around AI tools. Research emerging AI methods, prototype rapidly.</span></div>
                     <div class="role-map-row"><span class="role-map-company">Imagine Learning</span><span class="role-map-title">AI Product Manager</span><span>Use vibe coding tools for rapid prototyping. PM who builds, not just specs.</span></div>
+                    <div class="role-map-row role-map-trezor" id="role-map-trezor"><span class="role-map-company">Trezor</span><span class="role-map-title">AI Native Product Designer</span><span>Product designer who can vibe-code functional prototypes directly. AI-native workflow from day one. We're hiring this role now.</span></div>
                 </div>
 
 
@@ -1068,7 +1096,7 @@
                     <div class="comparison-items">
                         <div class="comparison-item"><span class="item-label">Team size</span><span class="item-value">PM + Designer + Tech Lead + 3–4 engs</span></div>
                         <div class="comparison-item"><span class="item-label">Teams</span><span class="item-value">~6 domain teams</span></div>
-                        <div class="comparison-item"><span class="item-label">Shared resources</span><span class="item-value">Design system (Figma/Zeroheight)</span></div>
+                        <div class="comparison-item"><span class="item-label">Shared resources</span><span class="item-value">Design system (Figma)</span></div>
                         <div class="comparison-item"><span class="item-label">Discovery</span><span class="item-value">PM + Designer research</span></div>
                         <div class="comparison-item"><span class="item-label">UI/UX creation</span><span class="item-value">Designer manually</span></div>
                         <div class="comparison-item"><span class="item-label">Copy</span><span class="item-value">Ad hoc, per-feature</span></div>
@@ -1235,11 +1263,14 @@
             <div class="roles-section blur-fade">
                 <h3>Roles in the New Model</h3>
                 <div class="roles-grid">
-                    <div class="role-card"><h4>Orchestrator</h4><p>Product strategy, design sense, technical literacy, prompt engineering, outcome ownership</p><p class="text-muted">Primary user of all three hubs.</p></div>
+                    <div class="role-card"><h4>Orchestrator</h4><p>Product strategy, design sense, technical literacy, prompt engineering, outcome ownership</p><p class="text-muted">Primary user of all hubs.</p></div>
                     <div class="role-card"><h4>Tech Lead</h4><p>Architecture, code review, AI-augmented development, system integration</p><p class="text-muted">Consumes Design Hub for implementation.</p></div>
-                    <div class="role-card"><h4>Hub Engineers</h4><p>DS, content pipelines, data infrastructure</p><p class="text-muted">Own hubs as a product.</p></div>
+                    <div class="role-card"><h4>Hub Engineers</h4><p>Design system, content pipelines, data infrastructure, tooling</p><p class="text-muted">Own hubs as a product.</p></div>
                     <div class="role-card"><h4>Design Lead</h4><p>Design governance, brand integrity, AI tool training, systems thinking</p><p class="text-muted">Owns the Design Hub.</p></div>
                     <div class="role-card"><h4>Research Lead</h4><p>User research methodology, data analysis, synthetic research</p><p class="text-muted">Owns the Insights Hub.</p></div>
+                    <div class="role-card"><h4>Security Lead</h4><p>Security standards, threat modeling, compliance, audit processes</p><p class="text-muted">Owns the Security Hub. Mandatory checkpoint for all teams.</p></div>
+                    <div class="role-card"><h4>Growth Lead</h4><p>Experimentation strategy, A/B testing, feature flags, data-driven decisions</p><p class="text-muted">Owns the Experimentation Hub.</p></div>
+                    <div class="role-card"><h4>Content &amp; Localisation Lead</h4><p>Messaging consistency, cultural adaptation, market-specific education</p><p class="text-muted">Owns the Content and Localisation Hubs.</p></div>
                 </div>
             </div>
         </div>
@@ -1313,6 +1344,7 @@
                 <div class="risk-card blur-fade" data-delay="0.24"><h4>Hub as Bottleneck</h4><p>Hubs can't keep up with demand.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Dedicated hub teams. Self-service access. Service Level Agreements on responses.</p></div></div>
                 <div class="risk-card blur-fade" data-delay="0.32"><h4>The Klarna Effect</h4><p>Overly aggressive AI replacement.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Augmentation, not substitution. Measure quality, not just speed.</p></div></div>
                 <div class="risk-card blur-fade" data-delay="0.4"><h4>AI Output Quality</h4><p>Hallucinations, bias, inconsistency.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Automated validation. Red teaming. Feedback loops into hubs.</p></div></div>
+                <div class="risk-card blur-fade" data-delay="0.48"><h4>Loss of Identity</h4><p>Without direction, AI defaults to generic and the company drifts from its purpose.</p><div class="risk-mitigation"><span class="mono-xs">Mitigation</span><p>Embed vision, mission and philosophy into hubs. Strategic direction as the first input, not an afterthought.</p></div></div>
             </div>
         </div>
     </section>

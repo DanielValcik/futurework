@@ -731,6 +731,19 @@
         if (e.key === 'Escape') window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // ─── Trezor role reveal ─────────────────────────────────
+    const trezorRow = document.getElementById('role-map-trezor');
+    if (trezorRow) {
+        const revealTrezor = () => {
+            const rect = trezorRow.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+                trezorRow.classList.add('revealed');
+                window.removeEventListener('scroll', revealTrezor);
+            }
+        };
+        window.addEventListener('scroll', revealTrezor, { passive: true });
+    }
+
     // ─── 90s Easter Egg (curtain reveal) ──────────────────
     const mainCurtain = document.getElementById('main-curtain');
     const retro90s = document.getElementById('retro-90s');
