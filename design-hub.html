@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trezor Brand System Map</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --bg-card: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #6B6B68;
+  --text-tertiary: #9C9A92;
+  --border: rgba(0,0,0,0.08);
+  --brand: #6B5CE7;
+  --brand-light: #EEEDFE;
+  --brand-text: #3C3489;
+  --identity: #D85A30;
+  --identity-light: #FEF0EB;
+  --identity-text: #712B13;
+  --system: #0F8A65;
+  --system-light: #E6F5EE;
+  --system-text: #085041;
+  --apply: #6B6B68;
+  --apply-light: #F3F2EE;
+  --apply-text: #444441;
+  --gov: #2D7DD2;
+  --gov-light: #E8F1FB;
+  --gov-text: #0C447C;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --connector: rgba(0,0,0,0.1);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --bg-card: #1E1E1C;
+    --text: #E8E6DF;
+    --text-secondary: #9C9A92;
+    --text-tertiary: #6B6B68;
+    --border: rgba(255,255,255,0.08);
+    --brand-light: #1E1A3D;
+    --brand-text: #CECBF6;
+    --identity-light: #2D1810;
+    --identity-text: #F5C4B3;
+    --system-light: #0A2220;
+    --system-text: #9FE1CB;
+    --apply-light: #222220;
+    --apply-text: #D3D1C7;
+    --gov-light: #0C1E33;
+    --gov-text: #B5D4F4;
+    --connector: rgba(255,255,255,0.07);
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.back-link {
+  display: inline-block; margin-bottom: 2rem;
+  font-family: 'DM Mono', monospace; font-size: 13px;
+  color: var(--text-secondary); text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--brand); }
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 48px 24px 80px;
+  min-height: 100vh;
+}
+.map {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+}
+header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+}
+header p span {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  background: var(--apply-light);
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Tier sections */
+.tier {
+  margin-bottom: 0;
+  position: relative;
+}
+.tier-connector {
+  width: 2px;
+  height: 20px;
+  background: var(--connector);
+  margin: 0 auto;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: rgba(0,0,0,0.15); }
+@media (prefers-color-scheme: dark) {
+  .card:hover { border-color: rgba(255,255,255,0.15); }
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.card-label {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.card-owner {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-left: auto;
+}
+.card-why {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Color themes — unified green */
+.t-brand .card-label, .t-identity .card-label, .t-system .card-label, .t-apply .card-label {
+  background: var(--system-light); color: var(--system-text);
+}
+.t-gov .card-label { background: rgba(0,0,0,0.05); color: var(--text-secondary); }
+.t-gov .card {
+  border-left: none;
+  background: transparent;
+  border: none;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(0,0,0,0.04);
+  background: rgba(0,0,0,0.025);
+}
+.t-gov .card:hover { border-color: transparent; }
+@media (prefers-color-scheme: dark) {
+  .t-gov .card-label { background: rgba(255,255,255,0.06); color: var(--text-secondary); }
+  .t-gov .card {
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.04);
+    background: rgba(0,0,0,0.15);
+  }
+  .t-gov .card:hover { border-color: transparent; }
+}
+
+/* Asset library — inset with purple accent */
+.t-assets .card {
+  border-left: none;
+  border: none;
+  box-shadow: inset 0 1px 4px rgba(107,92,231,0.08), inset 0 0 0 1px rgba(107,92,231,0.08);
+  background: rgba(107,92,231,0.04);
+}
+.t-assets .card:hover { border-color: transparent; }
+@media (prefers-color-scheme: dark) {
+  .t-assets .card {
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(107,92,231,0.12);
+    background: rgba(107,92,231,0.06);
+  }
+  .t-assets .card:hover { border-color: transparent; }
+}
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+.assets-item {
+  background: rgba(107,92,231,0.06);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  border: 1px solid rgba(107,92,231,0.06);
+}
+@media (prefers-color-scheme: dark) {
+  .assets-item {
+    background: rgba(107,92,231,0.08);
+    border-color: rgba(107,92,231,0.08);
+  }
+}
+.assets-item-title { font-size: 12px; font-weight: 500; color: var(--brand-text); margin-bottom: 4px; }
+.assets-item-why { font-size: 11px; opacity: 0.6; line-height: 1.4; color: var(--text-secondary); }
+@media (max-width: 900px) {
+  .assets-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 600px) {
+  .assets-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Sub-items grid */
+.sub-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+.sub-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.sub-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.sub-grid.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.sub-item {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+.sub-item:hover { transform: translateY(-1px); }
+.sub-item-title {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.sub-item-desc {
+  font-size: 11px;
+  opacity: 0.7;
+  line-height: 1.45;
+}
+
+/* Sub-item color fills — unified green */
+.t-brand .sub-item, .t-identity .sub-item, .t-system .sub-item, .t-apply .sub-item, .t-gov .sub-item {
+  background: var(--system-light); color: var(--system-text);
+}
+
+/* Identity special: 3 columns with sub-children */
+.identity-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.identity-col {
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+.identity-col.visual, .identity-col.verbal, .identity-col.physical { background: var(--system-light); }
+.identity-col h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.identity-col .col-owner {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  opacity: 0.5;
+  margin-bottom: 6px;
+}
+.identity-col .col-why {
+  font-size: 11px;
+  opacity: 0.65;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+.identity-col .col-item {
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 6px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+@media (prefers-color-scheme: dark) {
+  .identity-col .col-item { background: rgba(255,255,255,0.06); }
+}
+.identity-col .col-item:hover { transform: translateX(3px); }
+.identity-col .col-item-title {
+  font-size: 12px;
+  font-weight: 500;
+}
+.identity-col .col-item-why {
+  font-size: 11px;
+  opacity: 0.6;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.identity-col.visual h3, .identity-col.verbal h3, .identity-col.physical h3 { color: var(--system-text); }
+.identity-col.visual .col-item-title, .identity-col.verbal .col-item-title, .identity-col.physical .col-item-title { color: var(--system-text); }
+
+/* Design system inner */
+.ds-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.ds-col {
+  background: var(--system-light);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+.ds-col h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--system-text);
+}
+.ds-col .col-why {
+  font-size: 11px;
+  opacity: 0.65;
+  line-height: 1.45;
+  margin-bottom: 12px;
+  color: var(--system-text);
+}
+.ds-col .col-item {
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 6px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+@media (prefers-color-scheme: dark) {
+  .ds-col .col-item { background: rgba(255,255,255,0.06); }
+}
+.ds-col .col-item:hover { transform: translateX(3px); }
+.ds-col .col-item-title { font-size: 12px; font-weight: 500; color: var(--system-text); }
+.ds-col .col-item-why { font-size: 11px; opacity: 0.6; line-height: 1.4; margin-top: 2px; color: var(--system-text); }
+
+/* Application 3 cols */
+.app-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.app-col {
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+.app-col.product, .app-col.marketing, .app-col.hardware { background: var(--system-light); }
+.app-col h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.app-col .col-owner {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+.app-col .col-why { font-size: 11px; opacity: 0.65; line-height: 1.45; margin-bottom: 12px; }
+.app-col .col-item {
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+@media (prefers-color-scheme: dark) {
+  .app-col .col-item { background: rgba(255,255,255,0.06); }
+}
+.app-col .col-item-title { font-size: 12px; font-weight: 500; }
+.app-col .col-item-why { font-size: 11px; opacity: 0.6; line-height: 1.4; margin-top: 2px; }
+.app-col .col-item.muted { opacity: 0.45; }
+.app-col h3, .app-col .col-item-title { color: var(--system-text); }
+
+/* Governance grid */
+.gov-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+.gov-item {
+  background: rgba(0,0,0,0.03);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+@media (prefers-color-scheme: dark) {
+  .gov-item {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.04);
+  }
+}
+.gov-item-title { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.gov-item-why { font-size: 11px; opacity: 0.6; line-height: 1.4; color: var(--text-secondary); }
+
+/* Flow arrows between tiers */
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  gap: 8px;
+}
+.flow-arrow::before {
+  display: none;
+}
+.flow-arrow svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.45;
+}
+
+/* Tooltip */
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: var(--bg);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 10px 14px;
+  border-radius: 8px;
+  max-width: 280px;
+  z-index: 100;
+  pointer-events: none;
+}
+.sub-item:hover .tooltip,
+.col-item:hover .tooltip { display: block; }
+
+/* Footer legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Collapsible Design System inside Product */
+.ds-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px;
+  background: rgba(15,138,101,0.12);
+  border-radius: 6px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+@media (prefers-color-scheme: dark) {
+  .ds-toggle { background: rgba(15,138,101,0.15); }
+}
+.ds-toggle:hover { transform: translateX(3px); }
+.ds-toggle-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--system-text);
+}
+.ds-toggle-label {
+  font-size: 9px;
+  font-weight: 500;
+  padding: 1px 7px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--system-light);
+  color: var(--system-text);
+  border: 1px solid rgba(15,138,101,0.15);
+}
+@media (prefers-color-scheme: dark) {
+  .ds-toggle-label { border-color: rgba(159,225,203,0.15); }
+}
+.ds-toggle-chevron {
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  color: var(--system-text);
+  opacity: 0.5;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.ds-toggle.open .ds-toggle-chevron {
+  transform: rotate(180deg);
+}
+.ds-expandable {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+.ds-expandable.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+.ds-inner {
+  padding: 8px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ds-inner-section {
+  background: rgba(255,255,255,0.35);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+@media (prefers-color-scheme: dark) {
+  .ds-inner-section { background: rgba(255,255,255,0.04); }
+}
+.ds-inner-section h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--system-text);
+  margin-bottom: 2px;
+}
+.ds-inner-section .ds-section-why {
+  font-size: 10px;
+  opacity: 0.6;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--system-text);
+}
+.ds-inner-item {
+  padding: 5px 8px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  .ds-inner-item { background: rgba(255,255,255,0.05); }
+}
+.ds-inner-item-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--system-text);
+}
+.ds-inner-item-why {
+  font-size: 10px;
+  opacity: 0.55;
+  line-height: 1.35;
+  margin-top: 1px;
+  color: var(--system-text);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .identity-cols, .ds-cols, .app-cols { grid-template-columns: 1fr; }
+  .gov-grid { grid-template-columns: 1fr 1fr; }
+  .sub-grid.cols-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  body { padding: 24px 16px 48px; }
+  .sub-grid.cols-2, .sub-grid.cols-3, .sub-grid.cols-4 { grid-template-columns: 1fr; }
+  .gov-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="map">
+
+<a href="index.html#vision" class="back-link">&larr; Back to presentation</a>
+
+<header>
+  <h1>Trezor brand & design hub</h1>
+  <p>Structure and notes for unifying brand, identity, design system into one hub.</p>
+  <p style="margin-top: 10px;"><span>v1 / March 2026</span></p>
+</header>
+
+
+<!-- 1. BRAND DNA -->
+<div class="tier t-brand">
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Brand DNA</span>
+    </div>
+    <p class="card-why">The most stable layer. Changes once a decade. Defines why Trezor exists, who it serves, and what makes it different. Everyone in the company should know this by heart.</p>
+    <div class="sub-grid cols-4">
+      <div class="sub-item">
+        <div class="sub-item-title">Vision</div>
+        <div class="sub-item-desc">Where we're heading. Uncompromising self-custody for everyone.</div>
+      </div>
+      <div class="sub-item">
+        <div class="sub-item-title">Mission</div>
+        <div class="sub-item-desc">What we do daily to get closer to the vision. More measurable, helps prioritize.</div>
+      </div>
+      <div class="sub-item">
+        <div class="sub-item-title">Values</div>
+        <div class="sub-item-desc">Transparency, open-source, security &mdash; at Trezor these are engineering decisions, not marketing slogans.</div>
+      </div>
+      <div class="sub-item">
+        <div class="sub-item-title">Audience & positioning</div>
+        <div class="sub-item-desc">Who we serve, and why we're different. Shapes voice and product roadmap.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow"><svg viewBox="0 0 14 14"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+
+<!-- 2. DESIGN VISION -->
+<div class="tier t-brand">
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Design direction</span>
+    </div>
+    <p class="card-why">How Trezor should feel as an experience. Not visual rules, but design philosophy &mdash; e.g. "security must never be complicated" or "transparency is a design material." Acts as a filter for every design decision.</p>
+    <div class="sub-grid cols-2">
+      <div class="sub-item">
+        <div class="sub-item-title">Design vision</div>
+        <div class="sub-item-desc">One sentence describing how people should feel using Trezor. Drives creative direction.</div>
+      </div>
+      <div class="sub-item">
+        <div class="sub-item-title">Design values</div>
+        <div class="sub-item-desc">How the design team thinks &mdash; not what it creates.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow"><svg viewBox="0 0 14 14"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+
+<!-- 3. IDENTITY -->
+<div class="tier t-identity">
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Identity</span>
+    </div>
+    <p class="card-why">How Trezor looks, speaks, and exists physically. Three dimensions of one brand under a single roof &mdash; because together they form the complete brand experience, even though each has a different maintainer.</p>
+
+    <div class="identity-cols">
+      <!-- Visual -->
+      <div class="identity-col visual">
+        <h3>Visual</h3>
+        <div class="col-why">How Trezor looks.</div>
+        <div class="col-item"><div class="col-item-title">Logos</div></div>
+        <div class="col-item"><div class="col-item-title">Colors</div></div>
+        <div class="col-item"><div class="col-item-title">Typography</div></div>
+        <div class="col-item"><div class="col-item-title">Photography</div></div>
+        <div class="col-item"><div class="col-item-title">Illustrations</div></div>
+        <div class="col-item"><div class="col-item-title">Renders & CGI</div></div>
+        <div class="col-item"><div class="col-item-title">Graphic elements</div></div>
+        <div class="col-item"><div class="col-item-title">Motion</div></div>
+        <div class="col-item"><div class="col-item-title">Iconography</div></div>
+      </div>
+
+      <!-- Verbal -->
+      <div class="identity-col verbal">
+        <h3>Verbal</h3>
+        <div class="col-why">How Trezor speaks.</div>
+        <div class="col-item">
+          <div class="col-item-title">Voice & tone</div>
+          <div class="col-item-why">Voice is constant (trustworthy, direct, precise). Tone adapts to context &mdash; onboarding = warm, security alert = urgent.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Terminology & glossary</div>
+          <div class="col-item-why">Recovery seed vs. backup phrase vs. recovery share (Shamir). Definitive terms. Inconsistency in a security product = risk.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">UX writing guidelines</div>
+          <div class="col-item-why">Error messages, CTAs, onboarding copy, security messaging. Connects verbal identity to product patterns.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Security messaging</div>
+          <div class="col-item-why">Trezor-specific &mdash; how we communicate security concepts, warnings, recovery processes. A bad formulation = user loses funds.</div>
+        </div>
+      </div>
+
+      <!-- Physical -->
+      <div class="identity-col physical">
+        <h3>Physical</h3>
+        <div class="col-why">How Trezor exists in the real world. For most tech companies this is marginal &mdash; for Trezor, the physical product is a core brand touchpoint.</div>
+        <div class="col-item">
+          <div class="col-item-title">Industrial design language</div>
+          <div class="col-item-why">Form, materials, surfaces, ergonomics. Anodized aluminum, Gorilla Glass, edge radii &mdash; brand decisions that define how Trezor feels in hand.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Packaging & unboxing</div>
+          <div class="col-item-why">First physical impression. Must communicate security and premium quality. Tamper-evident elements are brand experience, not just security features.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Material & finish specs</div>
+          <div class="col-item-why">How does Trezor green translate to anodization? How does box color correspond to the digital palette? Bridge between digital and physical.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Retail & spatial design</div>
+          <div class="col-item-why">What a Trezor booth looks like at Bitcoin Conference. Must be recognizable as Trezor from 10 meters &mdash; visual identity applied to physical space.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow"><svg viewBox="0 0 14 14"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+
+<!-- 4. APPLICATION (includes Design System under Product) -->
+<div class="tier t-apply">
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Application</span>
+    </div>
+    <p class="card-why">Where the system gets applied. Three domains with different needs but a shared foundation. Product draws from the design system, Marketing from Identity/Visual + Verbal, Hardware from Identity/Physical.</p>
+
+    <div class="app-cols">
+      <div class="app-col product">
+        <h3>Product</h3>
+        <div class="col-why">Digital products where users spend most of their time. Draws directly from the design system &mdash; components, tokens, patterns.</div>
+
+        <!-- Design System (collapsible) -->
+        <div class="ds-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          <span class="ds-toggle-title">Design system</span>
+          <span class="ds-toggle-label">DS designer</span>
+          <svg class="ds-toggle-chevron" viewBox="0 0 14 14"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ds-expandable">
+          <div class="ds-inner">
+            <div class="ds-inner-section">
+              <h4>Foundations</h4>
+              <div class="ds-section-why">Base building blocks &mdash; tokens, grid, spacing. The bridge between brand identity and code.</div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Design tokens</div>
+                <div class="ds-inner-item-why">Named values: color.brand.primary, space.md. Three tiers: primitive, semantic, component.</div>
+              </div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Grid & layout</div>
+                <div class="ds-inner-item-why">Responsive grid, breakpoints, spacing system. Shared rhythm across Suite, web, landing pages.</div>
+              </div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Typography scale</div>
+                <div class="ds-inner-item-why">Size scale linked to tokens. heading-1 through body-small with line-height and letter-spacing.</div>
+              </div>
+            </div>
+            <div class="ds-inner-section">
+              <h4>Components</h4>
+              <div class="ds-section-why">UI library &mdash; buttons, inputs, cards. Exist in Figma and code. Documented with usage, states, a11y.</div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Core components</div>
+                <div class="ds-inner-item-why">Button, input, checkbox, tooltip &mdash; the foundation used everywhere.</div>
+              </div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Composed components</div>
+                <div class="ds-inner-item-why">Header, navigation, transaction card, device selector &mdash; built from core components.</div>
+              </div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Accessibility</div>
+                <div class="ds-inner-item-why">WCAG AA minimum. Contrast and keyboard nav standards for every component.</div>
+              </div>
+            </div>
+            <div class="ds-inner-section">
+              <h4>Patterns</h4>
+              <div class="ds-section-why">Repeatable UX patterns &mdash; how onboarding works, how transactions display. Behavior and flow.</div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Common flows</div>
+                <div class="ds-inner-item-why">Device setup, send transaction, recovery &mdash; definitive steps for each flow.</div>
+              </div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Content patterns</div>
+                <div class="ds-inner-item-why">Error messages, empty states, onboarding copy. Verbal identity in product.</div>
+              </div>
+              <div class="ds-inner-item">
+                <div class="ds-inner-item-title">Security patterns</div>
+                <div class="ds-inner-item-why">How we display seed, confirm transactions, communicate risk. The most critical section.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-item muted">
+          <div class="col-item-title">Trezor Suite</div>
+          <div class="col-item-why">Main app &mdash; desktop/web. Largest consumer of the design system. Components and patterns are primarily designed for Suite.</div>
+        </div>
+        <div class="col-item muted">
+          <div class="col-item-title">Trezor.io</div>
+          <div class="col-item-why">Marketing site + e-commerce. Shares identity and base tokens with Suite but has its own layout patterns and conversion components.</div>
+        </div>
+        <div class="col-item muted">
+          <div class="col-item-title">Landing pages</div>
+          <div class="col-item-why">Campaign pages. More flexible than the main site &mdash; can experiment more, but must stay within the identity.</div>
+        </div>
+      </div>
+
+      <div class="app-col marketing">
+        <h3>Marketing & creative</h3>
+        <div class="col-why">Everything beyond the product. Draws from Identity/Visual and Identity/Verbal. Has its own templates and creative playbook.</div>
+        <div class="col-item">
+          <div class="col-item-title">Campaigns & social</div>
+          <div class="col-item-why">Social media visuals, ads, PR. Need flexibility within brand identity. Creative playbook defines what's "on brand."</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Creative playbook</div>
+          <div class="col-item-why">How to use brand identity creatively &mdash; good/bad examples, moodboards, art direction for campaigns.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Merch & swag</div>
+          <div class="col-item-why">Branded materials. Must respect visual identity but with more freedom than product design.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Booths & events</div>
+          <div class="col-item-why">Physical installations at conferences and retail. Draws from Identity/Physical (spatial) and Identity/Visual (graphics).</div>
+        </div>
+      </div>
+
+      <div class="app-col hardware">
+        <h3>Hardware & physical</h3>
+        <div class="col-why">Physical products and spaces. Draws from Identity/Physical for design language, materials, spatial design. Realizes what Identity defines.</div>
+        <div class="col-item">
+          <div class="col-item-title">Physical products</div>
+          <div class="col-item-why">Safe 3, Safe 5, Safe 7 &mdash; each device realizes the industrial design language from Identity/Physical. Cross-line consistency is key.</div>
+        </div>
+        <div class="col-item">
+          <div class="col-item-title">Packaging production</div>
+          <div class="col-item-why">Realizing packaging guidelines &mdash; materials, print, tamper-evident elements, inserts. Connects design intent with manufacturing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:32px"></div>
+
+<!-- 5. ASSET LIBRARY -->
+<div class="tier t-assets">
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Asset library</span>
+    </div>
+    <p class="card-why">Central storage for all brand and design assets. Logos, icons, templates, photography, fonts &mdash; everything teams need to create on-brand work, organized and always up to date.</p>
+
+    <div class="assets-grid">
+      <div class="assets-item"><div class="assets-item-title">Logos</div></div>
+      <div class="assets-item"><div class="assets-item-title">Typeface</div></div>
+      <div class="assets-item"><div class="assets-item-title">Iconset</div></div>
+      <div class="assets-item"><div class="assets-item-title">Photography</div></div>
+      <div class="assets-item"><div class="assets-item-title">Product renders</div></div>
+      <div class="assets-item"><div class="assets-item-title">Illustrations</div></div>
+      <div class="assets-item"><div class="assets-item-title">Hardware & packaging</div></div>
+      <div class="assets-item"><div class="assets-item-title">Skills</div></div>
+    </div>
+  </div>
+</div>
+
+<div style="height:12px"></div>
+
+<!-- 6. GOVERNANCE -->
+<div class="tier t-gov">
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Governance & operations</span>
+    </div>
+    <p class="card-why">Without governance, the system dies. Someone must decide what changes, how it's communicated, and how new people learn what to use. At 200 people, one person is enough &mdash; but they must be clearly assigned.</p>
+
+    <div class="gov-grid">
+      <div class="gov-item">
+        <div class="gov-item-title">Versioning & changelog</div>
+        <div class="gov-item-why">When a button or color changes, how do 200 people find out? Changelog + notifications. Otherwise, stale versions everywhere.</div>
+      </div>
+      <div class="gov-item">
+        <div class="gov-item-title">Status indicators</div>
+        <div class="gov-item-why">Every page: stable / draft / deprecated / planned. People must know if a guideline is safe to use or still in flux.</div>
+      </div>
+      <div class="gov-item">
+        <div class="gov-item-title">Onboarding</div>
+        <div class="gov-item-why">New designer, developer, or external partner &mdash; how do they get into the hub? What do they read first? Role-based entry points.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
